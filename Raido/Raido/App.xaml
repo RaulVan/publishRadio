@@ -7,7 +7,12 @@
 
     <!--Application Resources-->
     <Application.Resources>
-        <local:LocalizedStrings xmlns:local="clr-namespace:Raido" x:Key="LocalizedStrings"/>
+    	<ResourceDictionary>
+    		<ResourceDictionary.MergedDictionaries>
+    			<ResourceDictionary Source="ResourceDictionary1.xaml"/>
+    		</ResourceDictionary.MergedDictionaries>
+    		<local:LocalizedStrings xmlns:local="clr-namespace:Raido" x:Key="LocalizedStrings"/>
+    	</ResourceDictionary>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
