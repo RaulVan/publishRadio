@@ -11,6 +11,7 @@ using System.Windows.Threading;
 using Raido.Models;
 using System.Diagnostics;
 using Microsoft.Phone.BackgroundAudio;
+using System.Collections.ObjectModel;
 
 namespace Raido
 {
@@ -28,26 +29,66 @@ namespace Raido
         /// </summary>
         public static int gCurrentTrack = 0;
 
-        
+        protected ObservableCollection<RadioFavList> favList = new ObservableCollection<RadioFavList>();
+
         public ChooseChannel()
         {
             InitializeComponent();
             this.UpdateState(null, null);
+            longlistAll.Visibility = Visibility.Collapsed;
+            longlistFav.Visibility = Visibility.Collapsed;
+            longlistSug.Visibility = Visibility.Collapsed;
+
             BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
 
-            longlistAll.SelectionChanged += longlistAll_SelectionChanged;
             this.Loaded += ChooseChannel_Loaded;
+
+            longlistAll.SelectionChanged += longlistAll_SelectionChanged;
+            longlistFav.SelectionChanged += longlistFav_SelectionChanged;
+            longlistSug.SelectionChanged += longlistSug_SelectionChanged;
+
+
         }
 
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            string type = NavigationContext.QueryString["type"];
+            Debug.WriteLine("============this from " + type);
+            if (type == "fav")
+            {
+                //TODO:加载收藏
+                longlistFav.Visibility = Visibility.Visible;
+                Radiohelper helper = new Radiohelper();
+                favList = helper.ReadXmltoObject();
+                if (favList != null)
+                {
+
+                    longlistFav.ItemsSource = favList;
+                }
+            }
+            else if (type == "all")
+            {
+                longlistAll.Visibility = Visibility.Visible;
+                var viewModel = new RadioListViewModel();
+                longlistAll.ItemsSource = viewModel.GroupedRadios;
+            }
+            else if (type == "sug")
+            {
+                //TODO:加载推荐
+                longlistSug.Visibility = Visibility.Visible;
+                //longlistSug.ItemsSource = datas;
+            }
+            base.OnNavigatedTo(e);
+        }
         void ChooseChannel_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
             this.timerr = new DispatcherTimer();
             this.timerr.Interval = TimeSpan.FromSeconds(.05);
             this.timerr.Tick += UpdateState;
-            var viewModel = new RadioListViewModel();
-            longlistAll.ItemsSource = viewModel.GroupedRadios;
-            
+
+
         }
 
         private void UpdateState(object sender, EventArgs e)
@@ -147,12 +188,13 @@ namespace Raido
             }
         }
 
+        #region Long List SelectionChanged
         void longlistAll_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
                 var selectenItem = (RadioContent)longlistAll.SelectedItem;
-                longlistAll.ScrollTo(selectenItem);
+                //longlistAll.ScrollTo(selectenItem);
 
                 AudioTrack selectAudioTrack = new AudioTrack(new Uri(selectenItem.RadioURL, UriKind.Absolute), selectenItem.RadioName, selectenItem.Type, "", null, "", EnabledPlayerControls.Pause);
                 //TODO：查找当前Select项在_PlayList中的index，然后给 isoCurrentTrack
@@ -207,6 +249,129 @@ namespace Raido
                 //UmengSDK.UmengAnalytics.TrackException(ex);
             }
         }
+        void longlistSug_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var selectenItem = (RadioContent)longlistSug.SelectedItem;
+                //longlistAll.ScrollTo(selectenItem);
+
+                AudioTrack selectAudioTrack = new AudioTrack(new Uri(selectenItem.RadioURL, UriKind.Absolute), selectenItem.RadioName, selectenItem.Type, "", null, "", EnabledPlayerControls.Pause);
+                //TODO：查找当前Select项在_PlayList中的index，然后给 isoCurrentTrack
+
+                foreach (var item in (Application.Current as App).PlayList)
+                {
+                    if (item.Source == selectAudioTrack.Source)
+                    {
+                        selectAudioTrack = item;
+                    }
+                }
+
+                int index = (Application.Current as App).PlayList.IndexOf(selectAudioTrack, 0);
+
+                AppConfig.isoCurrentTrack = index;
+
+                ////TODO:播放当前选择项
+
+                try
+                {
+                    ////BackgroundAudioPlayer.Instance.Track = null;// new AudioTrack();
+                    BackgroundAudioPlayer.Instance.Track = (Application.Current as App).PlayList[index];
+                    BackgroundAudioPlayer.Instance.Volume = 1.0d;
+                    ////BackgroundAudioPlayer.Instance.Play();
+
+                    if (PlayState.Playing == BackgroundAudioPlayer.Instance.PlayerState)
+                    {
+                        BackgroundAudioPlayer.Instance.Pause();
+                    }
+                    else if (PlayState.Unknown == BackgroundAudioPlayer.Instance.PlayerState)
+                    {
+                        //   BackgroundAudioPlayer.Instance.Stop();
+
+                        BackgroundAudioPlayer.Instance.Track = (Application.Current as App).PlayList[index];
+                        BackgroundAudioPlayer.Instance.Play();
+                    }
+                    else
+                    {
+                        BackgroundAudioPlayer.Instance.Track = (Application.Current as App).PlayList[index];
+                    }
+
+                    Debug.WriteLine("Play_Click Play:" + index);
+                }
+                catch (Exception ex)
+                {
+                    //UmengSDK.UmengAnalytics.TrackException(ex);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("listRadioList_SelectionChanged" + ex.ToString());
+                //UmengSDK.UmengAnalytics.TrackException(ex);
+            }
+        }
+
+        void longlistFav_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var selectenItem = (RadioFavList)longlistFav.SelectedItem;
+                //longlistAll.ScrollTo(selectenItem);
+
+                AudioTrack selectAudioTrack = new AudioTrack(new Uri(selectenItem.RadioURL, UriKind.Absolute), selectenItem.RadioName, selectenItem.Type, "", null, "", EnabledPlayerControls.Pause);
+                //TODO：查找当前Select项在_PlayList中的index，然后给 isoCurrentTrack
+
+                foreach (var item in (Application.Current as App).PlayList)
+                {
+                    if (item.Source == selectAudioTrack.Source)
+                    {
+                        selectAudioTrack = item;
+                    }
+                }
+
+                int index = (Application.Current as App).PlayList.IndexOf(selectAudioTrack, 0);
+
+                AppConfig.isoCurrentTrack = index;
+
+                ////TODO:播放当前选择项
+
+                try
+                {
+                    ////BackgroundAudioPlayer.Instance.Track = null;// new AudioTrack();
+                    BackgroundAudioPlayer.Instance.Track = (Application.Current as App).PlayList[index];
+                    BackgroundAudioPlayer.Instance.Volume = 1.0d;
+                    ////BackgroundAudioPlayer.Instance.Play();
+
+                    if (PlayState.Playing == BackgroundAudioPlayer.Instance.PlayerState)
+                    {
+                        BackgroundAudioPlayer.Instance.Pause();
+                    }
+                    else if (PlayState.Unknown == BackgroundAudioPlayer.Instance.PlayerState)
+                    {
+                        //   BackgroundAudioPlayer.Instance.Stop();
+
+                        BackgroundAudioPlayer.Instance.Track = (Application.Current as App).PlayList[index];
+                        BackgroundAudioPlayer.Instance.Play();
+                    }
+                    else
+                    {
+                        BackgroundAudioPlayer.Instance.Track = (Application.Current as App).PlayList[index];
+                    }
+
+                    Debug.WriteLine("Play_Click Play:" + index);
+                }
+                catch (Exception ex)
+                {
+                    //UmengSDK.UmengAnalytics.TrackException(ex);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("listRadioList_SelectionChanged" + ex.ToString());
+                //UmengSDK.UmengAnalytics.TrackException(ex);
+            }
+        }
+
+        #endregion
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
@@ -273,6 +438,19 @@ namespace Raido
             catch (Exception ex)
             {
                 //UmengSDK.UmengAnalytics.TrackException(ex);
+            }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (favList.Count > 0)
+            {
+                RadioFavList fav = (sender as Microsoft.Phone.Controls.MenuItem).CommandParameter as RadioFavList;
+                favList.Remove(fav);
+                longlistFav.ItemsSource.Remove(fav);
+                Radiohelper helper = new Radiohelper();
+                helper.WriteObjecttoXml(favList);
+                
             }
         }
 

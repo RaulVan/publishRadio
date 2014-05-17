@@ -14,6 +14,12 @@ namespace Raido
     public class AppConfig
     {
         /// <summary>
+        /// 远程数据地址
+        /// </summary>
+        public static string DatasURL = "http://shage.me/app/radiolist.txt";
+        public static string filename = "radiolist.txt";
+
+        /// <summary>
         /// 友盟统计API Key
         /// </summary>
         public static string AppKey = "530af5be56240b7e95046e75";
@@ -34,6 +40,19 @@ namespace Raido
             set
             {
                 IsolatedStorageSettings.ApplicationSettings["isoCurrentTrack"] = value;
+                IsolatedStorageSettings.ApplicationSettings.Save();
+            }
+        }
+
+        public static bool isFirstRun
+        {
+            get
+            {
+                return IsolatedStorageSettings.ApplicationSettings.Contains("isFirstRun") ? (bool)IsolatedStorageSettings.ApplicationSettings["isFirstRun"] : false;
+            }
+            set
+            {
+                IsolatedStorageSettings.ApplicationSettings["isFirstRun"] = value;
                 IsolatedStorageSettings.ApplicationSettings.Save();
             }
         }

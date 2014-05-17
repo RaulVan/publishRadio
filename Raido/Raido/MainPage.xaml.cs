@@ -22,8 +22,6 @@ namespace Raido
         /// </summary>
         private DispatcherTimer timerr;
 
-       
-
         /// <summary>
         /// 当前播放
         /// </summary>
@@ -35,6 +33,12 @@ namespace Raido
         public MainPage()
         {
             InitializeComponent();
+
+            if (AppConfig.isFirstRun)
+            {
+ 
+            }
+
             helper = new Radiohelper();
             (Application.Current as App).PlayList = helper.GetRadioList();
             
@@ -43,10 +47,13 @@ namespace Raido
             BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
 
             this.Loaded += MainPage_Loaded;
+
+
         }
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 this.timerr = new DispatcherTimer();
@@ -62,20 +69,6 @@ namespace Raido
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             gCurrentTrack = AppConfig.isoCurrentTrack;  
-
-            //if (PlayState.Playing == BackgroundAudioPlayer.Instance.PlayerState)
-            //{
-            //    btnPause.Visibility = Visibility.Visible;
-            //    btnPlay.Visibility = Visibility.Collapsed;
-            //    //TODO:显示当前播放内容
-            //}
-
-            //else
-            //{
-            //    btnPause.Visibility = Visibility.Collapsed;
-            //    btnPlay.Visibility = Visibility.Visible;
-            //    //TODO:播放内容清空
-            //}
 
             this.UpdateState(null, null);
            
@@ -187,7 +180,7 @@ namespace Raido
         /// <param name="e"></param>
         private void ImageButton_Click_1(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/ChooseChannel.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ChooseChannel.xaml?type=all", UriKind.Relative));
         }
 
         private void ImageButton_Click_2(object sender, RoutedEventArgs e)
@@ -207,7 +200,7 @@ namespace Raido
         /// <param name="e"></param>
         private void ImageButton_Click_4(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/ChooseChannel.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ChooseChannel.xaml?type=sug", UriKind.Relative));
         }
 
         /// <summary>
@@ -217,7 +210,7 @@ namespace Raido
         /// <param name="e"></param>
         private void ImageButton_Click_5(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/ChooseChannel.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ChooseChannel.xaml?type=fav", UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar

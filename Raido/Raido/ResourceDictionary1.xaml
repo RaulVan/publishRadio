@@ -416,7 +416,7 @@
     <DataTemplate x:Key="longlistAllDataTemplate">
         <loca:LongListItemContainer>
             <Grid Margin="24,12,0,12">
-                <TextBlock Text="{Binding RadioName}" FontSize="24" />
+                <TextBlock Text="{Binding RadioName}" FontSize="24" FontFamily="Portable User Interface" />
             </Grid>
         </loca:LongListItemContainer>
     </DataTemplate>

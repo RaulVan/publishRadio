@@ -104,6 +104,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\RadioFavList.cs" />
     <Compile Include="Models\RadioListViewModel.cs" />
     <Compile Include="PageAbout.xaml.cs">
       <DependentUpon>PageAbout.xaml</DependentUpon>
@@ -129,6 +130,7 @@
     <Compile Include="UseControl\LongListItemContainer.xaml.cs">
       <DependentUpon>LongListItemContainer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UseControl\LongListSelectorEX.cs" />
     <Compile Include="UseControl\StartLogo.xaml.cs">
       <DependentUpon>StartLogo.xaml</DependentUpon>
     </Compile>
@@ -220,6 +222,9 @@
     <Content Include="Images\icon_wav.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Resources\RadioListData.txt" />
+    <Content Include="SplashScreenImage.screen-720p.jpg" />
+    <Content Include="SplashScreenImage.screen-WVGA.jpg" />
+    <Content Include="SplashScreenImage.screen-WXGA.jpg" />
     <Content Include="UmImages\location.png" />
     <Content Include="UmImages\share.png" />
     <Content Include="UmImages\sns\douban.png" />
@@ -238,6 +243,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
     </Reference>

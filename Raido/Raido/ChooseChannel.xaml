@@ -6,6 +6,8 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:loca="clr-namespace:Raido.UseControl"                           
+                            xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -72,6 +74,33 @@
                                 GroupHeaderTemplate="{StaticResource GroupHeader}" 
                                 IsGroupingEnabled="True"
                                 />
+        <loca:LongListSelectorEX Grid.Row="1" x:Name="longlistFav" 
+                                 ItemsSource="{Binding}"
+                                IsGroupingEnabled="False"
+                                >
+            <loca:LongListSelectorEX.ItemTemplate >
+                <DataTemplate>
+                    <loca:LongListItemContainer>
+                        <StackPanel Margin="12,0,0,17">
+                            <toolkit:ContextMenuService.ContextMenu>
+                                <toolkit:ContextMenu IsZoomEnabled="True" FontFamily="Portable User Interface">
+                                    <toolkit:MenuItem Header="Delete" CommandParameter="{Binding}"
+                                                      Click="MenuItem_Click" FontFamily="Portable User Interface"/>
+                                </toolkit:ContextMenu>
+                            </toolkit:ContextMenuService.ContextMenu>
+                            <TextBlock  Text="{Binding RadioName}" FontSize="24" FontFamily="Portable User Interface"  Margin="6"/>
+                        </StackPanel>
+                    </loca:LongListItemContainer>
+                </DataTemplate>
+
+            </loca:LongListSelectorEX.ItemTemplate>
+        </loca:LongListSelectorEX>
+
+        <phone:LongListSelector Grid.Row="1" x:Name="longlistSug" 
+                                ItemTemplate="{StaticResource longlistAllDataTemplate}"
+                                IsGroupingEnabled="False"
+                                />
+
         <!--ContentPanel - place additional content here-->
     </Grid>
 

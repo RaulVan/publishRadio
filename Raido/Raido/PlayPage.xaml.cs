@@ -15,6 +15,8 @@ using System.IO;
 using System.Windows.Threading;
 using Microsoft.Phone.BackgroundAudio;
 using System.Diagnostics;
+using Raido.Models;
+using System.Collections.ObjectModel;
 
 namespace Raido
 {
@@ -31,6 +33,9 @@ namespace Raido
         /// 当前播放
         /// </summary>
         public static int gCurrentTrack = 0;
+
+
+        AudioTrack audioTrack;
 
         public PlayPage()
         {
@@ -103,7 +108,7 @@ namespace Raido
         {
             try
             {
-                AudioTrack audioTrack = BackgroundAudioPlayer.Instance.Track;
+                audioTrack = BackgroundAudioPlayer.Instance.Track;
 
                 if (audioTrack != null)
                 {
@@ -206,7 +211,19 @@ namespace Raido
 
         private void btnFav_Click(object sender, RoutedEventArgs e)
         {
+            Radiohelper helper = new Radiohelper();
 
+            ObservableCollection<RadioFavList> favList = helper.ReadXmltoObject();
+            if (favList==null)
+            {
+                favList = new ObservableCollection<RadioFavList>();
+            }
+            if (audioTrack!=null)
+            {
+                favList.Add(new RadioFavList() { RadioName = audioTrack.Title, RadioURL = audioTrack.Source.ToString(), Type = audioTrack.Artist, IsFav=true });
+                helper.WriteObjecttoXml(favList);
+            }
+           
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
