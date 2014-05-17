@@ -64,7 +64,12 @@
 
 
         </Grid>-->
-        <phone:LongListSelector Grid.Row="1" x:Name="longlistAll" ItemTemplate="{StaticResource longlistAllDataTemplate}" />
+        <phone:LongListSelector Grid.Row="1" x:Name="longlistAll" 
+                                ItemTemplate="{StaticResource longlistAllDataTemplate}" 
+                                JumpListStyle="{StaticResource JumpListStyle}" 
+                                GroupHeaderTemplate="{StaticResource GroupHeader}" 
+                                IsGroupingEnabled="True"
+                                />
         <!--ContentPanel - place additional content here-->
     </Grid>
 
