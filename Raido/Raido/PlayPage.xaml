@@ -36,13 +36,14 @@
 						<ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="80"/>
 					</Grid.ColumnDefinitions>
-					<TextBlock Text="中国国际广播电台" FontSize="32"  Margin="20,0,0,0" VerticalAlignment="Center" />
+                    <TextBlock x:Name="txtPlayName" Text="中国国际广播电台" FontSize="32"  Margin="20,0,0,0" VerticalAlignment="Center" />
 					<Radio:ImageButton x:Name="btnShare" Grid.Column="1" HorizontalAlignment="Left" Height="80"  Grid.Row="1" VerticalAlignment="Top" Width="80" ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,0" Click="btnShare_Click" />
-                    <Radio:ImageButton Grid.Column="2" HorizontalAlignment="Left" Height="80"  Grid.Row="1" VerticalAlignment="Top" Width="80" ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,0"/>
+                    <Radio:ImageButton x:Name="btnFav" Grid.Column="2" HorizontalAlignment="Left" Height="80"  Grid.Row="1" VerticalAlignment="Top" Width="80" ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,0" Click="btnFav_Click"/>
 				</Grid>
 				<StackPanel Orientation="Horizontal" Grid.Row="1">
-				<Radio:ImageButton  HorizontalAlignment="Left" Height="120"  Grid.Row="1" VerticalAlignment="Top" Width="120" ImageSource="/Images/icon_play_big.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,-73"/>
-				<Radio:ImageButton  HorizontalAlignment="Left" Height="120"  Grid.Row="1" VerticalAlignment="Top" Width="120" ImageSource="/Images/icon_next_big.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,-73"/>
+                    <Radio:ImageButton x:Name="btnPause" HorizontalAlignment="Left" Height="120"  Grid.Row="1" VerticalAlignment="Top" Width="120" ImageSource="/Images/icon_pause_big.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,0" Click="btnPause_Click"/>
+				<Radio:ImageButton x:Name="btnPlay" HorizontalAlignment="Left" Height="120"  Grid.Row="1" VerticalAlignment="Top" Width="120" ImageSource="/Images/icon_play_big.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,0" Click="btnPlay_Click"/>
+				<Radio:ImageButton x:Name="btnNext" HorizontalAlignment="Left" Height="120"  Grid.Row="1" VerticalAlignment="Top" Width="120" ImageSource="/Images/icon_next_big.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,0" Click="btnNext_Click"/>
 				</StackPanel>
 			</Grid>
 		</Grid>

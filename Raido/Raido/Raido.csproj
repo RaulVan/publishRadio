@@ -99,6 +99,7 @@
       <DependentUpon>ChooseChannel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Heplers\KeyedList.cs" />
+    <Compile Include="Heplers\Radiohelper.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -186,6 +187,7 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\qcode.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -210,6 +212,8 @@
     <Content Include="Images\icon_fav.png" />
     <Content Include="Images\icon_next_big.png" />
     <Content Include="Images\icon_next_small.png" />
+    <Content Include="Images\icon_pause_big.png" />
+    <Content Include="Images\icon_pause_samll.png" />
     <Content Include="Images\icon_play_big.png" />
     <Content Include="Images\icon_play_small.png" />
     <Content Include="Images\icon_set.png" />
@@ -245,6 +249,12 @@
     </Reference>
     <Reference Include="UmengSocialWP">
       <HintPath>..\lib\UmengSocialWP.dll</HintPath>
+    </Reference>
+    <Reference Include="WriteableBitmapExWinPhone">
+      <HintPath>..\packages\WriteableBitmapEx.1.0.12.0\lib\WindowsPhone8\WriteableBitmapExWinPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="WriteableBitmapExWinPhoneXnaDependant">
+      <HintPath>..\packages\WriteableBitmapEx.1.0.12.0\lib\WindowsPhone8\WriteableBitmapExWinPhoneXnaDependant.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -39,13 +39,15 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="中国国际广播电台" FontSize="32"  Margin="20,0,0,0" VerticalAlignment="Center" FontFamily="Portable User Interface" />
+            <TextBlock x:Name="txtPlayName" Text="中国国际广播电台" FontSize="32"  Margin="20,0,0,0" VerticalAlignment="Center" FontFamily="Portable User Interface" />
+            <StackPanel Grid.Column="1" Margin="8,28" Orientation="Horizontal">
+                <Radio:ImageButton x:Name="btnPause" HorizontalAlignment="Left" Height="64"  Grid.Row="1" VerticalAlignment="Top" Width="64" ImageSource="/Images/icon_pause_samll.png" Style="{StaticResource ButtonStyle4}"  Click="btnPause_Click"/>
+                <Radio:ImageButton  x:Name="btnPlay" Height="64" Width="64" ImageSource="/Images/icon_play_small.png" Style="{StaticResource ButtonStyle4}"  Click="btnPlay_Click" FontFamily="Portable User Interface"/>
+                <Radio:ImageButton x:Name="btnNext" Click="btnNext_Click" HorizontalAlignment="Center" Height="64" VerticalAlignment="Center" Width="64" ImageSource="/Images/icon_next_small.png" Style="{StaticResource ButtonStyle4}" FontFamily="Portable User Interface" />
 
-            <Radio:ImageButton Grid.Column="1" Height="64"  Grid.Row="1" Width="64" ImageSource="/Images/icon_play_small.png" Style="{StaticResource ButtonStyle4}" />
-            <Radio:ImageButton  Grid.Column="2" HorizontalAlignment="Center" Height="64"  Grid.Row="1" VerticalAlignment="Center" Width="64" ImageSource="/Images/icon_next_small.png" Style="{StaticResource ButtonStyle4}" />
+            </StackPanel>
 
             <!--<Radio:ImageButton Grid.Column="1" HorizontalAlignment="Left" Height="80"  Grid.Row="1" VerticalAlignment="Top" Width="80" ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,-73"/>-->
 

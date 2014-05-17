@@ -57,7 +57,7 @@
                 <Grid>
                     <StackPanel Margin="0,4,16,0" Orientation="Vertical" VerticalAlignment="Top">
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                            <loca:ImageButton ImageSource="/Images/icon_wav.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="正在播放" FontFamily="Portable User Interface" Click="ImageButton_Click" />
+                            <loca:ImageButton x:Name="btnPlayStatus" ImageSource="/Images/icon_wav.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="正在播放" FontFamily="Portable User Interface" Click="btnPlayStatus_Click" />
                             <loca:ImageButton ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="收藏" FontFamily="Portable User Interface" VerticalAlignment="Bottom" Click="ImageButton_Click_5" />
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">

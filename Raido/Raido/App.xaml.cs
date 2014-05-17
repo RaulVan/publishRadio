@@ -7,11 +7,29 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Raido.Resources;
+using Microsoft.Phone.BackgroundAudio;
+using System.Collections.Generic;
 
 namespace Raido
 {
     public partial class App : Application
     {
+
+
+        /// <summary>
+        /// 播放列表
+        /// </summary>
+        private List<AudioTrack> _playList;
+
+        /// <summary>
+        /// 播放列表
+        /// </summary>
+        public List<AudioTrack> PlayList
+        {
+            get { return _playList; }
+            set { _playList = value; }
+        }
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
