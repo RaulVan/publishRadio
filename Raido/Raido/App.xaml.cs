@@ -35,6 +35,13 @@ namespace Raido
             // Language display initialization
             InitializeLanguage();
 
+//#if DEBUG
+//            UmengAnalytics.Init(AppConfig.DebugAppKey, "Debug");
+//#else
+
+//            UmengAnalytics.Init(AppConfig.AppKey, "Marketplace");
+//#endif
+
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
             {

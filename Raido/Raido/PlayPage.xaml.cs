@@ -8,6 +8,9 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
+using UmengSocialSDK;
+using UmengSocialSDK.Net.Request;
+
 namespace Raido
 {
     public partial class PlayPage : PhoneApplicationPage
@@ -19,7 +22,7 @@ namespace Raido
 
         private void btnShare_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
     }
 }

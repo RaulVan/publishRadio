@@ -26,7 +26,7 @@ namespace Raido
                 datas.Add(new RadioContent() { RadioName = "beijing" });
             }
             
-            list= new RadioList();
+            //list= new RadioList();
             //longlistAll.ItemsSource = datas;
            
 

@@ -211,6 +211,16 @@
     <Content Include="Images\icon_set.png" />
     <Content Include="Images\icon_wav.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="UmImages\location.png" />
+    <Content Include="UmImages\share.png" />
+    <Content Include="UmImages\sns\douban.png" />
+    <Content Include="UmImages\sns\qzone.png" />
+    <Content Include="UmImages\sns\renren.png" />
+    <Content Include="UmImages\sns\sina.png" />
+    <Content Include="UmImages\sns\tencent.png" />
+    <Content Include="UmImages\sns\wechat.png" />
+    <Content Include="UmImages\sns\wxcircle.png" />
+    <Content Include="UmImages\sns\sms.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -227,6 +237,9 @@
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="UmengSocialWP">
+      <HintPath>..\lib\UmengSocialWP.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
