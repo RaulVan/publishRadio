@@ -94,6 +94,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppConfig.cs" />
     <Compile Include="ChooseChannel.xaml.cs">
       <DependentUpon>ChooseChannel.xaml</DependentUpon>
     </Compile>
