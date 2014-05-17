@@ -23,18 +23,13 @@ namespace Raido
         internal List<RadioContent> RList;
         string[] radiotype = {"新闻" ,"音乐","经济","娱乐","相声","教育","都市","体育","评书","故事","戏曲","交通"};
 
-        public RadioList()
+        public RadioList(string uri)
         {
             IsDownloadCompleted = false;
             RList = new List<RadioContent>();
-        }
-
-
-
-        public void BeginDownload(string uri)
-        {
             AnalysisInfo(uri);
         }
+
 
         async Task<byte[]> GetInfoFromHttp(string uri)
         {
