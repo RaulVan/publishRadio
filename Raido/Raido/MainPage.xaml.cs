@@ -28,7 +28,42 @@ namespace Raido
             NavigationService.Navigate(new Uri("/PlayPage.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ImageButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ChooseChannel.xaml", UriKind.Relative));
+        }
+
+        private void ImageButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/PageSetting.xaml", UriKind.Relative));
+        }
+
+        private void ImageButton_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/PageAbout.xaml", UriKind.Relative));
+        }
+
+        /// <summary>
+        /// 推荐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ImageButton_Click_4(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ChooseChannel.xaml", UriKind.Relative));
+        }
+
+        /// <summary>
+        /// 收藏
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ImageButton_Click_5(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/ChooseChannel.xaml", UriKind.Relative));
         }
