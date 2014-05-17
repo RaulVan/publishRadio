@@ -6,19 +6,16 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:loca="clr-namespace:Radio"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="False">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid x:Name="LayoutRoot" Background="#3adac9">
 
         <!-- LOCALIZATION NOTE:
             To localize the displayed strings copy their values to appropriately named
@@ -40,16 +37,64 @@
          -->
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="Button" HorizontalAlignment="Left" Margin="37,49,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
-        </Grid>
+
+        <phone:Panorama  TitleTemplate="{StaticResource DataTemplate1}" >
+            <phone:PanoramaItem CacheMode="{x:Null}" Orientation="Horizontal" >
+                <phone:PanoramaItem.RenderTransform>
+                    <TranslateTransform/>
+                </phone:PanoramaItem.RenderTransform>
+                <!--<StackPanel Orientation="Horizontal" >
+                    <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="推荐频道" FontFamily="Portable User Interface" />
+					<loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="频道列表" FontFamily="Portable User Interface" />
+					<loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="正在播放。。。" FontFamily="Portable User Interface" />
+					<loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="收藏" FontFamily="Portable User Interface" />
+					<loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="设置" FontFamily="Portable User Interface" />
+					<loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="关于" FontFamily="Portable User Interface" />
+                </StackPanel>-->
+                <Grid>
+                    <StackPanel Margin="0,4,16,0" Orientation="Vertical" VerticalAlignment="Top">
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                            <loca:ImageButton ImageSource="/Images/icon_wav.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="正在播放" FontFamily="Portable User Interface" Click="ImageButton_Click" />
+                            <loca:ImageButton ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="收藏" FontFamily="Portable User Interface" VerticalAlignment="Bottom" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">
+							<loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle2}" Height="100" Width="110"  TextContent="正在播放。。。" FontFamily="Portable User Interface" Opacity="0" />
+                            <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="推荐频道" FontFamily="Portable User Interface" />
+                            <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="频道选择" FontFamily="Portable User Interface" />
+                            
+                        </StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<loca:ImageButton  Style="{StaticResource ButtonStyle1}" Height="240" Width="240"   FontFamily="Portable User Interface" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0"/>
+							 <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="145"    FontFamily="Portable User Interface" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="3" Margin="35,-20,0,0"/>
+						</StackPanel>
+                    </StackPanel>
+                </Grid>
+            </phone:PanoramaItem>
+            <phone:PanoramaItem CacheMode="{x:Null}" Orientation="Horizontal">
+                <phone:PanoramaItem.RenderTransform>
+                    <TranslateTransform/>
+                </phone:PanoramaItem.RenderTransform>
+                <StackPanel Orientation="Vertical">
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+						<loca:ImageButton  Style="{StaticResource ButtonStyle3}" Height="380" Width="236"   FontFamily="Portable User Interface"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,-30,0" />
+					</StackPanel>
+				    <StackPanel Orientation="Horizontal">
+							<loca:ImageButton ImageSource="/Images/icon_set.png" Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="设置" FontFamily="Portable User Interface" Margin="-20,0,0,0" />
+                   
+                
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						 <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="50"  TextContent="关于" FontFamily="Portable User Interface" Opacity="0" />
+						 <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="关于" FontFamily="Portable User Interface" />
+					</StackPanel>
+                </StackPanel>
+            </phone:PanoramaItem>
+        </phone:Panorama>
+
+
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to

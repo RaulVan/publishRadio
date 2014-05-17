@@ -13,47 +13,18 @@ namespace Raido
 {
     public partial class MainPage : PhoneApplicationPage
     {
-
-        RadioList test;
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-            test = new RadioList();
-            test.DownloadFinshed += test_DownloadFinshed;
+
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
 
-        void test_DownloadFinshed(object sender, EventArgs e)
+        private void ImageButton_Click(object sender, RoutedEventArgs e)
         {
-            List<RadioContent> temp = test.GetList();
-            List<RadioContent> listtemp = new List<RadioContent>();
-
-            foreach(RadioContent item in temp)
-            {
-                if(item.RadioName.IndexOf("新闻") <0 &&
-                    item.RadioName.IndexOf("音乐") <0 &&
-                    item.RadioName.IndexOf("经济") <0 &&
-                    item.RadioName.IndexOf("娱乐") <0 &&
-                    item.RadioName.IndexOf("相声") <0 &&
-                    item.RadioName.IndexOf("教育") <0 &&
-                    item.RadioName.IndexOf("都市") <0 &&
-                    item.RadioName.IndexOf("体育") <0 &&
-                    item.RadioName.IndexOf("评书") <0 &&
-                    item.RadioName.IndexOf("故事") <0 &&
-                    item.RadioName.IndexOf("戏曲") <0 &&
-                    item.RadioName.IndexOf("交通") <0 
-                     )
-                {
-                    listtemp.Add(item);
-                }
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            test.BeginDownload("http://shage.me/app/radiolist.txt");
+            NavigationService.Navigate(new Uri("/PlayPage.xaml", UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar
