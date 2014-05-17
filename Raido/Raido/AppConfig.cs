@@ -17,6 +17,7 @@ namespace Raido
         /// 远程数据地址
         /// </summary>
         public static string DatasURL = "http://shage.me/app/radiolist.txt";
+        public static string SuggestURL = "http://shage.me/app/suggest.txt";
         public static string filename = "radiolist.txt";
 
         /// <summary>

@@ -407,7 +407,106 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style x:Key="ButtonStyle5" TargetType="loc:ImageButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}" />
+        <Setter Property="FontFamily" Value="Portable User Interface" />
+        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}" />
+        <Setter Property="Padding" Value="10,5,10,6" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="loc:ImageButton">
 
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <!--<Grid.Background>
+        						<ImageBrush Stretch="Fill" ImageSource="/images/jusi.png" />
+        					</Grid.Background>-->
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver" />
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ImageBack">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.6" />
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="ImageBack">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="3" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="ImageBack">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="3" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Margin="0">
+                            <!--<Rectangle x:Name="rectangle" RadiusY="90" RadiusX="90" Stroke="Blue" StrokeThickness="4">
+</Rectangle>-->
+
+                            <es:RegularPolygon Fill="#4CFFFFFF" Height="240" InnerRadius="1"
+								PointCount="6" Stretch="Fill"  UseLayoutRounding="false"
+								Width="200" />
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="45" />
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" x:Name="ImageBack" Source="{TemplateBinding ImageSource}" Opacity="0" RenderTransformOrigin="0.5,0.5" Stretch="None">
+                                    <Image.RenderTransform>
+                                        <CompositeTransform />
+                                    </Image.RenderTransform>
+
+                                    <!--<Image.Clip>
+                                        <EllipseGeometry Center="40,40" RadiusY="40" RadiusX="40" />
+                                    </Image.Clip>-->
+                                </Image>
+                                <Image Grid.Row="0" x:Name="ImageFront" RenderTransformOrigin="0.5,0.5" Stretch="None" Source="/Images/icon_wav.png">
+                                    <Image.RenderTransform>
+                                        <CompositeTransform />
+                                    </Image.RenderTransform>
+                                    <!--<Image.Clip>
+                                        <EllipseGeometry Center="40,40" RadiusY="40" RadiusX="40" />
+                                    </Image.Clip>-->
+                                </Image>
+                               
+                                <!--<TextBlock Grid.Row="1" Text="{TemplateBinding TextContent}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-100,0,0" FontFamily="Portable User Interface" />-->
+                                <Canvas x:Name="a" Background="Transparent" Cursor="Hand" Margin="0,100,0,25" Grid.RowSpan="2">
+                                    <Canvas.Clip>
+                                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="40,40, 110,40" />
+                                    </Canvas.Clip>
+                                    <Canvas.Triggers>
+                                        <EventTrigger RoutedEvent="Canvas.Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard x:Name="animation" Storyboard.TargetProperty="(Canvas.Left)" RepeatBehavior="Forever">
+                                                    <DoubleAnimation Storyboard.TargetName="txtPlayName" From="50" To="-200" Duration="0:0:4" />
+                                                    <DoubleAnimation Storyboard.TargetName="txtPlayName1" From="200" To="50" Duration="0:0:4" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Canvas.Triggers>
+
+                                    <TextBlock Grid.Row="1" x:Name="txtPlayName" Canvas.Top="50" Text="{TemplateBinding TextContent}" HorizontalAlignment="Center" VerticalAlignment="Center"   FontFamily="Portable User Interface" />
+                                    <TextBlock Grid.Row="1" x:Name="txtPlayName1" Canvas.Top="50" Text="{TemplateBinding TextContent}" HorizontalAlignment="Center" VerticalAlignment="Center"   FontFamily="Portable User Interface" />
+                                </Canvas>
+                            </Grid>
+                            <!--<Border x:Name="boeder"  Width=" 80" Height="80" BorderBrush="#FF243E13"  BorderThickness="1" CornerRadius="80" Opacity="0.5" Margin="3,0,-3,0">
+        							<Border BorderBrush="#FF1C340D" BorderThickness="3"  CornerRadius="80" Margin="0" />
+        						</Border>-->
+                        </Grid>
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <DataTemplate x:Key="DataTemplate1">
         <Grid>
             <!--<TextBlock Text="Radio" />-->

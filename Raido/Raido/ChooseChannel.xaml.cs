@@ -12,6 +12,7 @@ using Raido.Models;
 using System.Diagnostics;
 using Microsoft.Phone.BackgroundAudio;
 using System.Collections.ObjectModel;
+using Raido.Service;
 
 namespace Raido
 {
@@ -28,6 +29,8 @@ namespace Raido
         /// 当前播放
         /// </summary>
         public static int gCurrentTrack = 0;
+
+        private NaviTypeEnum naviType;
 
         protected ObservableCollection<RadioFavList> favList = new ObservableCollection<RadioFavList>();
 
@@ -57,6 +60,7 @@ namespace Raido
             Debug.WriteLine("============this from " + type);
             if (type == "fav")
             {
+                naviType = NaviTypeEnum.Fav;
                 //TODO:加载收藏
                 longlistFav.Visibility = Visibility.Visible;
                 Radiohelper helper = new Radiohelper();
@@ -69,15 +73,18 @@ namespace Raido
             }
             else if (type == "all")
             {
+                naviType = NaviTypeEnum.All;
+
                 longlistAll.Visibility = Visibility.Visible;
                 var viewModel = new RadioListViewModel();
                 longlistAll.ItemsSource = viewModel.GroupedRadios;
             }
             else if (type == "sug")
             {
+                naviType = NaviTypeEnum.Sug;
                 //TODO:加载推荐
                 longlistSug.Visibility = Visibility.Visible;
-                //longlistSug.ItemsSource = datas;
+                longlistSug.ItemsSource = DataService.GetSuggestRadios();
             }
             base.OnNavigatedTo(e);
         }

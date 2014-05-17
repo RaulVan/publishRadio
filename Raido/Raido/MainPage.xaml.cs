@@ -34,11 +34,13 @@ namespace Raido
         {
             InitializeComponent();
 
-            if (AppConfig.isFirstRun)
-            {
+            //if (AppConfig.isFirstRun)
+            //{
  
-            }
+            //}
 
+            panoramaMain.Visibility = Visibility.Collapsed;
+            //animation.Stop();
             helper = new Radiohelper();
             (Application.Current as App).PlayList = helper.GetRadioList();
             
@@ -53,7 +55,7 @@ namespace Raido
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
             try
             {
                 this.timerr = new DispatcherTimer();
@@ -64,6 +66,17 @@ namespace Raido
             {
                 //UmengSDK.UmengAnalytics.TrackException(ex);
             }
+
+            //加载logo，启动画面
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(.5);
+            timer.Tick += (a, b) =>
+            {
+                panoramaMain.Visibility = Visibility.Visible;
+                this.LayoutRoot.Children.Remove(this.loadingScreen);
+                timer.Stop();
+            };
+            timer.Start();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -84,13 +97,14 @@ namespace Raido
 
                 if (audioTrack != null)
                 {
+                    //txtPlayName.Text = txtPlayName1.Text = "北京怀旧金曲广播电台";
                     //txtPlayName.Text = audioTrack.Title;
                     if (PlayState.Playing == BackgroundAudioPlayer.Instance.PlayerState)
                     {
                         //btnPause.Visibility = Visibility.Visible;
                         //btnPlay.Visibility = Visibility.Collapsed;
                         //TODO:显示当前播放内容
-                        btnPlayStatus.TextContent = audioTrack.Title;
+                        btnPlayStatus.TextContent= audioTrack.Title;
                     }
                     else
                     {

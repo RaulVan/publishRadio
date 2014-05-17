@@ -23,15 +23,6 @@
 河南音乐广播=mms://vod.hndt.com/yygb=其他
 河南交通广播=mms://vod.hndt.com/jtgb=其他
 河南My Radio=mms://vod.hndt.com/fm90=其他
-中央电台中国之声=mms://mms.cnr.cn//cnr1?MTUjMCM=其他
-中央电台经济之声=mms://mms.cnr.cn//cnr2?MTUjMCM=其他
-中央电台音乐之声=mms://mms.cnr.cn//cnr3?MTUjMCM=其他   
-中央电台都市之声=mms://mms.cnr.cn//cnr4?MTUjMCM=其他
-中央电台中华之声=mms://mms.cnr.cn//cnr5?MTUjMCM=其他
-中央电台神州之声=mms://mms.cnr.cn//cnr6?MTUjMCM=其他
-中央电台民族之声= mms://mms.cnr.cn//cnr8?MTUjMCM=其他
-中央电台华夏之声=mms://media.radio.cn/live=其他
-中央电台文艺之声= mms://mms.cnr.cn//cnr9?MTUjMCM=其他
 中国国际电台网络=mms://living.chinabroadcast.cn/inet=其他
 国际电台HitFm887= mms://live.hitfm.cn/fm887=音乐
 国际电台新闻频道=mms://media.crinewsradio.cn/crinewsradio=其他

@@ -30,6 +30,20 @@ namespace Raido
             return audioList;
         }
 
+        public List<AudioTrack> GetRadioFavList()
+        {
+            List<AudioTrack> audioList = new List<AudioTrack>();
+            if (ReadXmltoObject() == null)
+            {
+                return null;
+            }
+            List<RadioFavList> radios = ReadXmltoObject().ToList();
+            foreach (var item in radios)
+            {
+                audioList.Add(new AudioTrack(new Uri(item.RadioURL, UriKind.Absolute), item.RadioName, item.Type, "", null, "", EnabledPlayerControls.Pause));
+            }
+            return audioList;
+        }
 
         public async Task<WriteableBitmap> Screen()
         {
@@ -129,13 +143,13 @@ namespace Raido
             {
                 using (IsolatedStorageFileStream stream = myIsolatedStorage.OpenFile("fav.xml", FileMode.OpenOrCreate))
                 {
-                    if (stream.Length!=0)
+                    if (stream.Length != 0)
                     {
 
                         XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<RadioFavList>));
                         ObservableCollection<RadioFavList> data = (ObservableCollection<RadioFavList>)serializer.Deserialize(stream);
                         return data;
-                    
+
                     }
                     else
                     {
