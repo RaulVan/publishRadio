@@ -17,6 +17,7 @@ namespace Raido
         public ChooseChannel()
         {
             InitializeComponent();
+
         }
 
     }

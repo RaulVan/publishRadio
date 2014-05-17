@@ -20,11 +20,17 @@ namespace Raido
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+           
         }
 
         private void ImageButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/PlayPage.xaml", UriKind.Relative));
+        }
+
+        private void ImageButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ChooseChannel.xaml", UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar
