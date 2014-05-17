@@ -21,7 +21,7 @@ namespace Raido
     public class RadioList
     {
         internal List<RadioContent> RList;
-        public event EventHandler DownloadFinshed;
+        string[] radiotype = {"新闻" ,"音乐","经济","娱乐","相声","教育","都市","体育","评书","故事","戏曲","交通"};
 
         public RadioList()
         {
@@ -49,7 +49,16 @@ namespace Raido
             return await response.Content.ReadAsByteArrayAsync();
         }
 
-        
+        string GetRadioType(string name)
+        {
+            foreach(string item in radiotype)
+            {
+                if (name.IndexOf(item) >= 0)
+                    return item;
+            }
+
+            return "其他";
+        }
 
         async void AnalysisInfo(string uri)
         {
@@ -61,7 +70,7 @@ namespace Raido
             while (!string.IsNullOrWhiteSpace(line))
             {
                 var ary = line.Split('=');
-                RadioContent content = new RadioContent() { RadioName = ary[0], RadioURL = ary[1] };
+                RadioContent content = new RadioContent() { RadioName = ary[0], RadioURL = ary[1],type = GetRadioType(ary[0]) };
 
                 RList.Add(content);
                 //groups[RadiosInfo.GetNameFirstPinyinKey(radioInfo)].Add(radioInfo);
@@ -69,8 +78,6 @@ namespace Raido
 
             }
             IsDownloadCompleted = true;
-
-            DownloadFinshed(null, null);
         }
 
         public List<RadioContent> GetList()
