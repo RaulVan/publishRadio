@@ -36,31 +36,35 @@
             </StackPanel>
         </Grid>-->
         <Grid Grid.Row="0" Background="#7F000000" Opacity="50">
-            
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="80"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="中国国际广播电台" FontSize="32"  Margin="20,0,0,0" VerticalAlignment="Center" />
 
-                <Radio:ImageButton Grid.Column="1" Height="64"  Grid.Row="1" Width="64" ImageSource="/Images/icon_play_small.png" Style="{StaticResource ButtonStyle4}" />
-                <Radio:ImageButton  Grid.Column="2" HorizontalAlignment="Center" Height="64"  Grid.Row="1" VerticalAlignment="Center" Width="64" ImageSource="/Images/icon_next_small.png" Style="{StaticResource ButtonStyle4}" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="中国国际广播电台" FontSize="32"  Margin="20,0,0,0" VerticalAlignment="Center" FontFamily="Portable User Interface" />
 
-                <!--<Radio:ImageButton Grid.Column="1" HorizontalAlignment="Left" Height="80"  Grid.Row="1" VerticalAlignment="Top" Width="80" ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,-73"/>-->
-            
+            <Radio:ImageButton Grid.Column="1" Height="64"  Grid.Row="1" Width="64" ImageSource="/Images/icon_play_small.png" Style="{StaticResource ButtonStyle4}" />
+            <Radio:ImageButton  Grid.Column="2" HorizontalAlignment="Center" Height="64"  Grid.Row="1" VerticalAlignment="Center" Width="64" ImageSource="/Images/icon_next_small.png" Style="{StaticResource ButtonStyle4}" />
 
-        </Grid>
+            <!--<Radio:ImageButton Grid.Column="1" HorizontalAlignment="Left" Height="80"  Grid.Row="1" VerticalAlignment="Top" Width="80" ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle4}" Margin="0,0,0,-73"/>-->
 
-        <Grid Grid.Row="1">
-            <phone:LongListSelector HorizontalAlignment="Left" Height="552" VerticalAlignment="Top" Width="480" Margin="0,96,0,0" >
-                <phone:LongListSelector.ItemTemplate>
-                    <DataTemplate/>
-                </phone:LongListSelector.ItemTemplate>
-            </phone:LongListSelector>
-            <TextBlock FontSize="48" Foreground="#e1e1e1" HorizontalAlignment="Left" Margin="25,13,0,0" TextWrapping="Wrap" Text="选择频道" VerticalAlignment="Top"/>
 
         </Grid>
+
+        <!--<Grid Grid.Row="1"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="96"/>
+                <RowDefinition Height="Auto"/>
+                
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="48" Foreground="#e1e1e1"  Text="选择频道" FontFamily="Portable User Interface"/>
+
+           
+
+
+        </Grid>-->
+        <phone:LongListSelector Grid.Row="1" x:Name="longlistAll" ItemTemplate="{StaticResource longlistAllDataTemplate}" />
         <!--ContentPanel - place additional content here-->
     </Grid>
 

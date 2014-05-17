@@ -16,5 +16,10 @@ namespace Raido
         {
             InitializeComponent();
         }
+
+        private void btnShare_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

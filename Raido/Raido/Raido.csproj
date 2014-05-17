@@ -121,6 +121,9 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="UseControl\ImageButton.cs" />
+    <Compile Include="UseControl\LongListItemContainer.xaml.cs">
+      <DependentUpon>LongListItemContainer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UseControl\StartLogo.xaml.cs">
       <DependentUpon>StartLogo.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
     <Page Include="ResourceDictionary1.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UseControl\LongListItemContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UseControl\StartLogo.xaml">
       <SubType>Designer</SubType>
