@@ -238,8 +238,6 @@
     <Content Include="Images\icon_next_big.png" />
     <Content Include="Images\icon_next_small.png" />
     <Content Include="Images\icon_pause.png" />
-    <Content Include="Images\icon_pause_big.png" />
-    <Content Include="Images\icon_pause_samll.png" />
     <Content Include="Images\icon_pause_small.png" />
     <Content Include="Images\icon_play.png" />
     <Content Include="Images\icon_play_big.png" />
