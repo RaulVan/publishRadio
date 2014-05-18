@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Models\RadioFavList.cs" />
     <Compile Include="Models\RadioListViewModel.cs" />
+    <Compile Include="NetType.cs" />
     <Compile Include="PageAbout.xaml.cs">
       <DependentUpon>PageAbout.xaml</DependentUpon>
     </Compile>

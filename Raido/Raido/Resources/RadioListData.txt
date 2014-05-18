@@ -12,28 +12,52 @@
 河北新闻广播=mms://audio1.hebradio.com/live1=新闻
 河北音乐广播=mms://audio1.hebradio.com/live6=音乐
 河北旅游广播=mms://audio1.hebradio.com/live8=旅游
-安徽新闻广播=mms://live.ahradio.com.cn/xwgb=其他
-安徽经济广播=mms://live.ahradio.com.cn/jjgb=其他
+安徽新闻广播=mms://live.ahradio.com.cn/xwgb=新闻
+安徽经济广播=mms://live.ahradio.com.cn/jjgb=经济
 安徽生活广播=mms://live.ahradio.com.cn/shgb=其他
-安徽交通广播=mms://live.ahradio.com.cn/jtgb=其他
+安徽交通广播=mms://live.ahradio.com.cn/jtgb=交通
 安徽农村广播=mms://live.ahradio.com.cn/ncgb=其他
 安徽小说广播=mms://live.ahradio.com.cn/xspsgb=其他
 安徽戏曲广播=mms://live.ahradio.com.cn/xqgb=其他
 安徽旅游广播=mms://live.ahradio.com.cn/lygb=其他
-河南音乐广播=mms://vod.hndt.com/yygb=其他
-河南交通广播=mms://vod.hndt.com/jtgb=其他
+河南音乐广播=mms://vod.hndt.com/yygb=音乐
+河南交通广播=mms://vod.hndt.com/jtgb=交通
 河南My Radio=mms://vod.hndt.com/fm90=其他
-中国国际电台网络=mms://living.chinabroadcast.cn/inet=其他
-国际电台HitFm887= mms://live.hitfm.cn/fm887=音乐
-国际电台新闻频道=mms://media.crinewsradio.cn/crinewsradio=其他
-国际在线 = mms://219.142.120.27/chn=其他
-国际电台EASY FM= mms://enmms.chinabroadcast.cn/fm91.5=其他
-国际在线音乐广播= mms://enmms.chinabroadcast.cn/am1008=其他
-国际电台怀旧金曲=mms://live.cri.cn/oldies=其他
-国际电台都市流行=mms://live.cri.cn/pop=其他
-国际电台乡村民谣 =mms://live.cri.cn/country=其他
-国际电台Round the Clock= mms://livexwb.cri.com.cn/clock=其他
-国际电台Nairobi 91.9 = mms://livexwb.cri.com.cn/kenya=其他
-国际电台Vientiane 93.0 = mms://livexwb.cri.com.cn/lao=其他
-国际电台Perth 104.9=mms://livexwb.cri.com.cn/aus=其他
+中国国际电台网络=mms://living.chinabroadcast.cn/inet=国际
+国际电台HitFm887= mms://live.hitfm.cn/fm887=国际
+国际电台新闻频道=mms://media.crinewsradio.cn/crinewsradio=国际
+国际在线 = mms://219.142.120.27/chn=国际
+国际电台EASY FM= mms://enmms.chinabroadcast.cn/fm91.5=国际
+国际在线音乐广播= mms://enmms.chinabroadcast.cn/am1008=国际
+国际电台怀旧金曲=mms://live.cri.cn/oldies=国际
+国际电台都市流行=mms://live.cri.cn/pop=国际
+国际电台乡村民谣 =mms://live.cri.cn/country=国际
+国际电台Round the Clock= mms://livexwb.cri.com.cn/clock=国际
+国际电台Nairobi 91.9 = mms://livexwb.cri.com.cn/kenya=国际
+国际电台Vientiane 93.0 = mms://livexwb.cri.com.cn/lao=国际
+国际电台Perth 104.9=mms://livexwb.cri.com.cn/aus=国际
 猫扑电台=mms://ting.mop.com/mopradio=音乐
+北京城市广播=mms://alive.rbc.cn/fm1073=新增
+北京爱家广播=mms://alive.rbc.cn/am927=新增
+北京长书广播=mms://alive.rbc.cn/cfm1043=新增
+北京欢乐时光广播=mms://alive.rbc.cn/cfm1065=新增
+天津新闻广播=mms://218.69.250.8/live1=新增
+天津音乐广播=mms://218.69.250.8/live2=新增
+天津经济广播=mms://218.69.250.8/live3=新增
+天津文艺广播=mms://218.69.250.8/live4=新增
+天津交通广播=mms://218.69.250.8/live5=新增
+天津生活广播=mms://218.69.250.8/live6=新增
+天津滨海广播=mms://218.69.250.8/live7=新增
+天津小说广播=mms://218.69.250.8/live8=新增
+天津相声广播=mms://218.69.250.8/live9=新增
+天津娱乐广播=mms://218.69.250.8/live10=新增
+天津区县联盟广播=mms://218.69.250.8/live11=新增
+天津戏曲广播=mms://218.69.250.8/live14=新增
+天津古典音乐广播=mms://218.69.250.8/live15=新增
+天津外语广播=mms://218.69.250.8/live16=新增
+
+
+
+
+
+
