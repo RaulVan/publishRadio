@@ -62,6 +62,7 @@ namespace Raido
             if (type == "fav")
             {
                 naviType = NaviTypeEnum.Fav;
+                txtListName.Text = "收藏列表";
                 //TODO:加载收藏
                 longlistFav.Visibility = Visibility.Visible;
                 Radiohelper helper = new Radiohelper();
@@ -75,7 +76,7 @@ namespace Raido
             else if (type == "all")
             {
                 naviType = NaviTypeEnum.All;
-
+                txtListName.Text = "选择频道";
                 longlistAll.Visibility = Visibility.Visible;
                 var viewModel = new RadioListViewModel();
                 longlistAll.ItemsSource = viewModel.GroupedRadios;
@@ -83,6 +84,7 @@ namespace Raido
             else if (type == "sug")
             {
                 naviType = NaviTypeEnum.Sug;
+                txtListName.Text = "推荐频道";
                 //TODO:加载推荐
                 longlistSug.Visibility = Visibility.Visible;
                 longlistSug.ItemsSource = DataService.GetSuggestRadios();
@@ -113,13 +115,15 @@ namespace Raido
                         btnPause.Visibility = Visibility.Visible;
                         btnPlay.Visibility = Visibility.Collapsed;
                         //TODO:显示当前播放内容
+                        gridPlay.Visibility = Visibility.Visible;
                     }
                     else
                     {
                         btnPause.Visibility = Visibility.Collapsed;
                         btnPlay.Visibility = Visibility.Visible;
                         //TODO:播放内容清空
-                        txtPlayName.Text = "停止";
+                        txtPlayName.Text = "";
+                        gridPlay.Visibility = Visibility.Collapsed;
                     }
 
                 }
@@ -128,7 +132,8 @@ namespace Raido
                     btnPause.Visibility = Visibility.Collapsed;
                     btnPlay.Visibility = Visibility.Visible;
                     //TODO:播放内容清空
-                    txtPlayName.Text = "停止";
+                    txtPlayName.Text = "";
+                    gridPlay.Visibility = Visibility.Collapsed;
                 }
             }
             catch (Exception)

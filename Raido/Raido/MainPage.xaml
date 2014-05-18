@@ -17,7 +17,7 @@
     shell:SystemTray.IsVisible="False">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="#3adac9">
+    <Grid x:Name="LayoutRoot" Background="#00aba9">
 
         <!-- LOCALIZATION NOTE:
             To localize the displayed strings copy their values to appropriately named
@@ -50,42 +50,22 @@
                 </phone:PanoramaItem.RenderTransform>
                
                 <Grid>
-                    <StackPanel Margin="0,4,16,0" Orientation="Vertical" VerticalAlignment="Top">
+                    <StackPanel Margin="0,4,0,0" Orientation="Vertical" VerticalAlignment="Top">
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                            <!--<Grid   >-->
-                            <!--<Canvas Height="240" Width="240">
-                                --><!--<Canvas>--><!--
-                                <Canvas.Clip>
-                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="50,50, 300,50" />
-                                </Canvas.Clip>
-                                <Canvas.Triggers>
-                                    <EventTrigger RoutedEvent="Canvas.Loaded" >
-                                        <BeginStoryboard>
-                                            <Storyboard x:Name="animation" Storyboard.TargetProperty="(Canvas.Left)" RepeatBehavior="Forever" >
-                                                <DoubleAnimation Storyboard.TargetName="txtPlayName" From="50" To="-200" Duration="0:0:10"  />
-                                                <DoubleAnimation Storyboard.TargetName="txtPlayName1" From="300" To="50" Duration="0:0:10"  />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </Canvas.Triggers>
-                                <TextBlock x:Name="txtPlayName"   FontSize="30" TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" Canvas.Top="50" Width="550" Height="50" />
-                                <TextBlock x:Name="txtPlayName1"   FontSize="30" TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" Canvas.Top="50" Width="550" Height="50" />
-                                --><!--</Canvas>--><!--
-                                <es:RegularPolygon Fill="#4CFFFFFF" Height="240" InnerRadius="1"
-								PointCount="6" Stretch="Fill"  UseLayoutRounding="false"
-								Width="200" />
-                            </Canvas>-->
-                            <!--</Grid>-->
+                           
                             <loca:ImageButton x:Name="btnPlayStatus" ImageSource="/Images/icon_wav.png" Style="{StaticResource ButtonStyle5}" TextContent="正在播出" Height="240" Width="240"  FontFamily="Portable User Interface" Click="btnPlayStatus_Click" />
 
 
                             <loca:ImageButton ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="收藏" FontFamily="Portable User Interface" VerticalAlignment="Bottom" Click="ImageButton_Click_5" />
+                            <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle2}" Height="100" Width="110"   FontFamily="Portable User Interface" Opacity="0" />
+                            <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="145"   FontFamily="Portable User Interface" Margin="20,0,0,0"   VerticalAlignment="Bottom" Click="ImageButton_Click_2" HorizontalAlignment="Right" />
+                            <!--<loca:ImageButton  Style="{StaticResource ButtonStyle3}" Height="380" Width="236"   FontFamily="Portable User Interface"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0" />-->
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">
 							<loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle2}" Height="100" Width="110"   FontFamily="Portable User Interface" Opacity="0" />
                             <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="推荐频道" FontFamily="Portable User Interface" Click="ImageButton_Click_4" />
                             <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="频道选择" FontFamily="Portable User Interface"  Click="ImageButton_Click_1"/>
-                            
+                            <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="关于" FontFamily="Portable User Interface" Click="ImageButton_Click_3" />
                         </StackPanel>
 						<StackPanel Orientation="Horizontal">
 							<loca:ImageButton  Style="{StaticResource ButtonStyle1}" Height="240" Width="240"   FontFamily="Portable User Interface" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0"/>
@@ -94,7 +74,7 @@
                     </StackPanel>
                 </Grid>
             </phone:PanoramaItem>
-            <phone:PanoramaItem CacheMode="{x:Null}" Orientation="Horizontal">
+            <!--<phone:PanoramaItem CacheMode="{x:Null}" Orientation="Horizontal">
                 <phone:PanoramaItem.RenderTransform>
                     <TranslateTransform/>
                 </phone:PanoramaItem.RenderTransform>
@@ -112,7 +92,7 @@
 						 <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="关于" FontFamily="Portable User Interface" Click="ImageButton_Click_3" />
 					</StackPanel>
                 </StackPanel>
-            </phone:PanoramaItem>
+            </phone:PanoramaItem>-->
         </phone:Panorama>
 
 
