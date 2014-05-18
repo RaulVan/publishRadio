@@ -8,8 +8,55 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-    
-    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-
+    <UserControl.Resources>
+        
+            <Storyboard x:Name="myStoryboard">
+                <DoubleAnimation From="10" To="60" Duration="00:00:0.7" 
+                Storyboard.TargetName="b1" 
+                Storyboard.TargetProperty="Height" RepeatBehavior="Forever">
+                    <DoubleAnimation.EasingFunction>
+                        <SineEase EasingMode="EaseOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            <DoubleAnimation From="30" To="75" Duration="00:00:3" 
+                Storyboard.TargetName="b2" 
+                Storyboard.TargetProperty="Height" RepeatBehavior="Forever">
+                <DoubleAnimation.EasingFunction>
+                    <SineEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="80" To="100" Duration="00:00:1" 
+                Storyboard.TargetName="b3" 
+                Storyboard.TargetProperty="Height" RepeatBehavior="Forever">
+                <DoubleAnimation.EasingFunction>
+                    <SineEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="30" To="80" Duration="00:00:2" 
+                Storyboard.TargetName="b4" 
+                Storyboard.TargetProperty="Height" RepeatBehavior="Forever">
+                <DoubleAnimation.EasingFunction>
+                    <SineEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="20" To="70" Duration="00:00:0.5" 
+                Storyboard.TargetName="b5" 
+                Storyboard.TargetProperty="Height" RepeatBehavior="Forever">
+                <DoubleAnimation.EasingFunction>
+                    <SineEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        
+    </UserControl.Resources>
+        
+    <Grid x:Name="LayoutRoot" Height="120" >
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+            <Border x:Name="b1" Width="20" Height="10" Background="#FFEC5555" Margin="6,0,0,0" VerticalAlignment="Bottom" />
+            <Border x:Name="b2" Width="20" Height="60" Background="#FFEC5555" Margin="6,0,0,0" VerticalAlignment="Bottom"/>
+            <Border x:Name="b3" Width="20" Height="100" Background="#FFEC5555" Margin="6,0,0,0" VerticalAlignment="Bottom"/>
+            <Border x:Name="b4" Width="20" Height="50" Background="#FFEC5555" Margin="6,0,0,0" VerticalAlignment="Bottom"/>
+            <Border x:Name="b5" Width="20" Height="20" Background="#FFEC5555" Margin="6,0,0,0" VerticalAlignment="Bottom"/>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -44,7 +44,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="txtPlayName" Text="中国国际广播电台" FontSize="32"  Margin="20,0,0,0" VerticalAlignment="Center" FontFamily="Portable User Interface" />
+            <TextBlock x:Name="txtPlayName"  FontSize="32"  Margin="20,0,0,0" VerticalAlignment="Center" FontFamily="Portable User Interface" />
             <StackPanel Grid.Column="1" Margin="8,28" Orientation="Horizontal">
                 <Radio:ImageButton x:Name="btnPause" HorizontalAlignment="Left" Height="64"  Grid.Row="1" VerticalAlignment="Top" Width="64" ImageSource="/Images/icon_pause_samll.png" Style="{StaticResource ButtonStyle4}"  Click="btnPause_Click"/>
                 <Radio:ImageButton  x:Name="btnPlay" Height="64" Width="64" ImageSource="/Images/icon_play_small.png" Style="{StaticResource ButtonStyle4}"  Click="btnPlay_Click" FontFamily="Portable User Interface"/>
@@ -69,8 +69,8 @@
 
 
         </Grid>-->
-        <Grid Grid.Row="1"  Height="60">
-            <TextBlock x:Name="txtListName" FontSize="48"/>
+        <Grid Grid.Row="1"  Height="60" Margin="12">
+            <TextBlock x:Name="txtListName" FontSize="48" Margin="12,0,0,0"/>
         </Grid>
         
         <!--Long List Selector -->

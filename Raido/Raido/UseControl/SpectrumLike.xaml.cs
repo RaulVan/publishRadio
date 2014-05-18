@@ -15,6 +15,22 @@ namespace Raido.UseControl
         public SpectrumLike()
         {
             InitializeComponent();
+            this.Loaded += SpectrumLike_Loaded;
+        }
+
+        void SpectrumLike_Loaded(object sender, RoutedEventArgs e)
+        {
+            myStoryboard.Begin();
+        }
+
+        public void Begin()
+        {
+            myStoryboard.Begin();
+        }
+
+        public void Stop()
+        {
+            myStoryboard.Stop();
         }
     }
 }

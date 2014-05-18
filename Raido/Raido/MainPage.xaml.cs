@@ -69,7 +69,7 @@ namespace Raido
 
             //加载logo，启动画面
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(.5);
+            timer.Interval = TimeSpan.FromSeconds(1.1);
             timer.Tick += (a, b) =>
             {
                 panoramaMain.Visibility = Visibility.Visible;
@@ -199,7 +199,7 @@ namespace Raido
 
         private void ImageButton_Click_2(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/PageSetting.xaml", UriKind.Relative));
+            //NavigationService.Navigate(new Uri("/PageSetting.xaml", UriKind.Relative));
         }
 
         private void ImageButton_Click_3(object sender, RoutedEventArgs e)

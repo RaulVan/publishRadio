@@ -44,28 +44,28 @@
         <loc:StartLogo x:Name="loadingScreen"/>
 
         <phone:Panorama  x:Name="panoramaMain" TitleTemplate="{StaticResource DataTemplate1}" >
-            <phone:PanoramaItem CacheMode="{x:Null}" Orientation="Horizontal"  >
+            <phone:PanoramaItem CacheMode="{x:Null}" Orientation="Horizontal" Header="7.11 FM" FontFamily="Segoe UI Light"  >
                 <phone:PanoramaItem.RenderTransform>
                     <TranslateTransform/>
                 </phone:PanoramaItem.RenderTransform>
                
-                <Grid>
+                <Grid> 
                     <StackPanel Margin="0,4,0,0" Orientation="Vertical" VerticalAlignment="Top">
-                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,-30">
                            
-                            <loca:ImageButton x:Name="btnPlayStatus" ImageSource="/Images/icon_wav.png" Style="{StaticResource ButtonStyle5}" TextContent="正在播出" Height="240" Width="240"  FontFamily="Portable User Interface" Click="btnPlayStatus_Click" />
+                            <loca:ImageButton x:Name="btnPlayStatus"  Style="{StaticResource ButtonStyle5}" TextContent="正在播出" Height="240" Width="240"  FontFamily="Portable User Interface" Click="btnPlayStatus_Click" BorderThickness="3" />
 
 
-                            <loca:ImageButton ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="收藏" FontFamily="Portable User Interface" VerticalAlignment="Bottom" Click="ImageButton_Click_5" />
+                            <loca:ImageButton ImageSource="/Images/icon_fav.png" Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="收藏" FontFamily="Portable User Interface" VerticalAlignment="Bottom" Click="ImageButton_Click_5" BorderThickness="20,3,3,3" />
                             <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle2}" Height="100" Width="110"   FontFamily="Portable User Interface" Opacity="0" />
                             <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="145"   FontFamily="Portable User Interface" Margin="20,0,0,0"   VerticalAlignment="Bottom" Click="ImageButton_Click_2" HorizontalAlignment="Right" />
                             <!--<loca:ImageButton  Style="{StaticResource ButtonStyle3}" Height="380" Width="236"   FontFamily="Portable User Interface"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0" />-->
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">
-							<loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle2}" Height="100" Width="110"   FontFamily="Portable User Interface" Opacity="0" />
+							<loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="100" Width="110"   FontFamily="Portable User Interface" Opacity="0" />
                             <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="推荐频道" FontFamily="Portable User Interface" Click="ImageButton_Click_4" />
-                            <loca:ImageButton ImageSource="/Images/icon_cd.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="频道选择" FontFamily="Portable User Interface"  Click="ImageButton_Click_1"/>
-                            <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="关于" FontFamily="Portable User Interface" Click="ImageButton_Click_3" />
+                            <loca:ImageButton ImageSource="/Images/icon_cd2.png" Style="{StaticResource ButtonStyle1}" Height="240" Width="240"  TextContent="频道选择" FontFamily="Portable User Interface"  Click="ImageButton_Click_1"/>
+                            <loca:ImageButton  Style="{StaticResource ButtonStyle2}" Height="145" Width="145"  TextContent="关于" FontFamily="Portable User Interface" Click="ImageButton_Click_3" ImageSource="/Images/icon_caonima.png" />
                         </StackPanel>
 						<StackPanel Orientation="Horizontal">
 							<loca:ImageButton  Style="{StaticResource ButtonStyle1}" Height="240" Width="240"   FontFamily="Portable User Interface" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0"/>
