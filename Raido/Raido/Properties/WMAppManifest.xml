@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{a155f332-6d6e-4421-9824-694d61faed74}" Title="Raido" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Raido author" Description="Sample description" Publisher="Raido" PublisherID="{6c14bd7b-66fa-44e3-94c1-456bb0921c85}">
+  <App xmlns="" ProductID="{a155f332-6d6e-4421-9824-694d61faed74}" Title="7.11 FM" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Raido author" Description="Sample description" Publisher="Raido" PublisherID="{6c14bd7b-66fa-44e3-94c1-456bb0921c85}">
     <IconPath IsRelative="true" IsResource="false">Assets\Tiles\title_14.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -20,8 +20,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\title_09.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\tile_300.png</BackgroundImageURI>
-          <Title>
-          </Title>
+          <Title>7.11 FM</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI IsRelative="true" IsResource="false">

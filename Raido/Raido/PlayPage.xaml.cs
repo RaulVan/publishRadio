@@ -186,11 +186,11 @@ namespace Raido
                 string content = "";
                 if (string.IsNullOrWhiteSpace(txtPlayName.Text))
                 {
-                    content = "我正在使用Radio Pro收听广播，分享一个好APP，支持CodeMonkey。";
+                    content = "我正在使用7.11 FM 收听广播，分享一个好APP，支持CodeMonkey。";
                 }
                 else
                 {
-                    content = string.Format("我正在使用Radio Pro收听{0}，分享一个好APP，支持CodeMonkey。", txtPlayName.Text);
+                    content = string.Format("我正在使用7.11 FM 收听{0}，分享一个好APP，支持CodeMonkey。", txtPlayName.Text);
                 }
                 shareData.Content = content;
 
@@ -240,7 +240,7 @@ namespace Raido
                     //audioTrack = item;
                     //btnFav.IsEnabled = false;
                     _prompt = new ToastPrompt();
-                    _prompt.Title = "Radio Pro";
+                    _prompt.Title = "提示";
                     _prompt.Message = "该频道已在收藏列表";
                     _prompt.TextWrapping = TextWrapping.NoWrap;
                     _prompt.Show();
@@ -253,7 +253,7 @@ namespace Raido
                 helper.WriteObjecttoXml(favList);
                
                 _prompt = new ToastPrompt();
-                _prompt.Title = "Radio Pro";
+                _prompt.Title = "提示";
                 _prompt.Message = "成功添加至收藏列表";
                 _prompt.TextWrapping = TextWrapping.NoWrap;
                 _prompt.Show();
