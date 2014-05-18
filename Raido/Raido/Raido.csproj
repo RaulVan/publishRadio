@@ -133,6 +133,9 @@
       <DependentUpon>LongListItemContainer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UseControl\LongListSelectorEX.cs" />
+    <Compile Include="UseControl\SpectrumLike.xaml.cs">
+      <DependentUpon>SpectrumLike.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UseControl\StartLogo.xaml.cs">
       <DependentUpon>StartLogo.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UseControl\SpectrumLike.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UseControl\StartLogo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -207,6 +214,14 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Tiles\tile_159.png" />
+    <Content Include="Assets\Tiles\tile_300.png" />
+    <Content Include="Assets\Tiles\title_09.jpg" />
+    <Content Include="Assets\Tiles\title_09.png" />
+    <Content Include="Assets\Tiles\title_14.jpg" />
+    <Content Include="Assets\Tiles\title_14.png" />
+    <Content Include="Assets\Tiles\title_17.jpg" />
+    <Content Include="Assets\Tiles\title_20.jpg" />
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\bg_big.png" />
     <Content Include="Images\bg_big_light.png" />

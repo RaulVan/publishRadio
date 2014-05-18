@@ -15,7 +15,7 @@
                              Storyboard.TargetProperty="Angle" />
         </Storyboard>
     </UserControl.Resources>
-    <Grid x:Name="LayoutRoot" Background="#3adac9">
+    <Grid x:Name="LayoutRoot" Background="#00aba9">
         <Image Source="/Images/logo.png" Stretch="None"></Image>
         <Grid x:Name="LoadingVisual" Margin="0,0,0,0"
               RenderTransformOrigin="0.5,0.5" 
