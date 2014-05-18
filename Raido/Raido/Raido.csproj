@@ -222,6 +222,9 @@
     <Content Include="Assets\Tiles\title_14.png" />
     <Content Include="Assets\Tiles\title_17.jpg" />
     <Content Include="Assets\Tiles\title_20.jpg" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\bg_big.png" />
     <Content Include="Images\bg_big_light.png" />

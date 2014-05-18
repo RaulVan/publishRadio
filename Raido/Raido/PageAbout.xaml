@@ -35,23 +35,45 @@
                 <Image Source="/Images/logo4about.png" Stretch="UniformToFill" Height="128" Width="128" />
 
                 <TextBlock  x:Name="txtVersion" FontSize="24" Text="v0.7.0" HorizontalAlignment="Center"/>
+                <TextBlock Text="开发者"  Margin="0,12,0,0" HorizontalAlignment="Center"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
-                <TextBlock Text="开发者："  Margin="0,12,0,0"/>
-                    <TextBlock Text="@十一_x" Margin="6,12,0,0"/>
-                    <TextBlock Text="@蘇_小乐" Margin="6,12,0,0"/>
+                    <StackPanel Orientation="Vertical"  Margin="0,0,6,0">
+                        <Image Height="80" Source="/Images/1.jpg" Stretch="UniformToFill">
+                            <Image.Clip>
+                                <EllipseGeometry Center="40,40" RadiusY="40" RadiusX="40"/>
+                            </Image.Clip>
+
+                        </Image>
+                    <TextBlock Text="@十一_x" />
+                    </StackPanel>
+                    <StackPanel  Orientation="Vertical" Margin="6,0,6,0">
+                        <Image Width="80" Source="/Images/2.jpg" Stretch="UniformToFill" >
+                            <Image.Clip>
+                                <EllipseGeometry Center="40,40" RadiusY="40" RadiusX="40"/>
+                            </Image.Clip>
+
+                        </Image>
+                        <TextBlock Text="@蘇_小乐"/>
+                    </StackPanel>
+                    <StackPanel  Orientation="Vertical" Margin="6,0,0,0">
+                        <Image Width="80"  Source="/Images/3.jpg" Stretch="UniformToFill">
+                            <Image.Clip>
+                                <EllipseGeometry Center="40,40" RadiusY="40" RadiusX="40"/>
+                            </Image.Clip>
+
+                        </Image>
+                        <TextBlock Text="@王不太二" HorizontalAlignment="Center"/>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
-                    <TextBlock Text="设计师：" HorizontalAlignment="Center" Margin="10,0"/>
-                    <TextBlock Text="@王不太二" HorizontalAlignment="Center"/>
-                </StackPanel>
-                <!--<TextBlock Text="打分和评价" HorizontalAlignment="Center"/>-->
                 
+                <!--<TextBlock Text="打分和评价" HorizontalAlignment="Center"/>-->
+
                 <HyperlinkButton x:Name="btnRate" Content="给个好评" Margin="0,24,0,12" HorizontalAlignment="Center" Click="btnRate_Click"/>
                 <!--<Radio:ImageButton x:Name="btnRate" Style="{StaticResource ButtonStyle4}" ImageSource="/Images/icon_cd.png" Width="140" Height="120"  Click="btnRate_Click"/>-->
                 <HyperlinkButton x:Name="btnContract" Content="联系及建议反馈" HorizontalAlignment="Center" Click="btnContract_Click"/>
-                
+
             </StackPanel>
-           
+
         </Grid>
     </Grid>
 
