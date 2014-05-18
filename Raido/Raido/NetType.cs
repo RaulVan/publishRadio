@@ -12,8 +12,7 @@ namespace Raido
 
         enum netType
         {
-            _3G = 0,
-            _2G,
+            _Cellular=0,
             _WIFI,
             _NoNet
         }
@@ -27,18 +26,10 @@ namespace Raido
                 var info = Microsoft.Phone.Net.NetworkInformation.NetworkInterface.NetworkInterfaceType;
                 switch (info)
                 {
-                    case NetworkInterfaceType.MobileBroadbandCdma:
-                        return netType._3G;
-                    case NetworkInterfaceType.MobileBroadbandGsm:
-                        return netType._2G;
                     case NetworkInterfaceType.Wireless80211:
                         return netType._WIFI;
-                    case NetworkInterfaceType.Ethernet:
-                        return "Ethernet";
-                    case NetworkInterfaceType.None:
-                        return "None";
                     default:
-                        return "Other";
+                        return netType._Cellular;                    
                 } 
             }
         }
