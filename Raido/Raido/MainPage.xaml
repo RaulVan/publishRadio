@@ -41,6 +41,7 @@
         <!--TitlePanel contains the name of the application and page title-->
 
         <!--ContentPanel - place additional content here-->
+       
         <loc:StartLogo x:Name="loadingScreen"/>
 
         <phone:Panorama  x:Name="panoramaMain" TitleTemplate="{StaticResource DataTemplate1}" >

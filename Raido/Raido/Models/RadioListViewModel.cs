@@ -17,7 +17,7 @@ namespace Raido.Models
               var radios = DataService.GetRadios();
 
               var groupedRadios = from radio in radios
-                                  orderby radio.Type
+                                  orderby radio.Type descending 
                                   group radio by radio.Type into radioType
                                   select new KeyedList<string, RadioContent>(radioType);
               return new List<KeyedList<string, RadioContent>>(groupedRadios);

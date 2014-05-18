@@ -46,10 +46,10 @@ namespace Raido
             
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
-            BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
 
             this.Loaded += MainPage_Loaded;
 
+            BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
 
         }
 

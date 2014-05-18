@@ -16,8 +16,8 @@ namespace Raido.UseControl
         public StartLogo()
         {
             InitializeComponent();
-            this.Loaded += StartLogo_Loaded;
-            this.Unloaded += StartLogo_Unloaded;
+            //this.Loaded += StartLogo_Loaded;
+            //this.Unloaded += StartLogo_Unloaded;
         }
 
         void StartLogo_Unloaded(object sender, RoutedEventArgs e)

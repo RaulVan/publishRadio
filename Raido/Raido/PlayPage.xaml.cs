@@ -45,8 +45,8 @@ namespace Raido
         {
             InitializeComponent();
             this.UpdateState(null, null);
-            BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
             this.Loaded += PlayPage_Loaded;
+            BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
         }
 
    

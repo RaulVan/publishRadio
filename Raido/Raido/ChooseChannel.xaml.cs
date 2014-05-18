@@ -43,9 +43,9 @@ namespace Raido
             longlistFav.Visibility = Visibility.Collapsed;
             longlistSug.Visibility = Visibility.Collapsed;
 
+            this.Loaded += ChooseChannel_Loaded;
             BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
 
-            this.Loaded += ChooseChannel_Loaded;
 
             longlistAll.SelectionChanged += longlistAll_SelectionChanged;
             longlistFav.SelectionChanged += longlistFav_SelectionChanged;

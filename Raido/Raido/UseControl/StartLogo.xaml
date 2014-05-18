@@ -16,8 +16,14 @@
         </Storyboard>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot" Background="#00aba9">
-        <Image Source="/Images/logo.png" Stretch="None"></Image>
-        <Grid x:Name="LoadingVisual" Margin="0,0,0,0"
+        <Image Source="/Images/logo.png" Stretch="None">
+            <!--<Image.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform x:Name="LoadingVisualAngleTransform" Angle="0" CenterX="0.5" CenterY="0.5"/>
+                </TransformGroup>
+            </Image.RenderTransform>-->
+        </Image>
+        <!--<Grid x:Name="LoadingVisual" Margin="0,0,0,0"
               RenderTransformOrigin="0.5,0.5" 
               VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.RenderTransform>
@@ -33,6 +39,6 @@
                   VerticalAlignment="Top" Width="10" Height="15" Stretch="Fill"
                   Fill="#00BDD2"
                   Data="M0,-1.1 L0.1,-1 L0,-0.9" StrokeThickness="1" />
-        </Grid>
+        </Grid>-->
     </Grid>
 </UserControl>
