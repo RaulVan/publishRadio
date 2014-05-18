@@ -1,4 +1,4 @@
-﻿<phone:PhoneApplicationPage
+﻿<phone:PhoneApplicationPage xmlns:Radio="clr-namespace:Radio" 
     x:Class="Raido.PageAbout"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -22,13 +23,26 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Radio Pro" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="关于" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <StackPanel Orientation="Vertical">
+                <Image Source="/Images/logo.png" Stretch="UniformToFill" Height="128" Width="128" />
+               
+                <TextBlock  x:Name="txtVersion" FontSize="24" Text="Windows Phone 8 v1.0.0" HorizontalAlignment="Center"/>
+                    <TextBlock Text="作者" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="@十一_x" Margin="6,0"/>
+                    <TextBlock Text="@王不太二" Margin="6,0"/>
+                    <TextBlock Text="@蘇_小乐" Margin="6,0"/>
+                </StackPanel>
+                <TextBlock Text="打分和评价" HorizontalAlignment="Center"/>
+                <Radio:ImageButton x:Name="btnRate" Style="{StaticResource ButtonStyle4}" ImageSource="/Images/icon_cd.png" Width="140" Height="120"  Click="btnRate_Click"/>
+                <HyperlinkButton x:Name="btnContract" Content="联系及建议反馈" HorizontalAlignment="Center" Click="btnContract_Click"/>
+            </StackPanel>
         </Grid>
     </Grid>
 

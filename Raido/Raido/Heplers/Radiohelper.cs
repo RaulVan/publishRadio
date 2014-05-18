@@ -45,6 +45,16 @@ namespace Raido
             return audioList;
         }
 
+        public List<AudioTrack> GetRadioSugList()
+        {
+            List<AudioTrack> audioList = new List<AudioTrack>();
+            List<RadioContent> radios = DataService.GetSuggestRadios();
+            foreach (var item in radios)
+            {
+                audioList.Add(new AudioTrack(new Uri(item.RadioURL, UriKind.Absolute), item.RadioName, item.Type, "", null, "", EnabledPlayerControls.Pause));
+            }
+            return audioList;
+        }
         public async Task<WriteableBitmap> Screen()
         {
             //截图

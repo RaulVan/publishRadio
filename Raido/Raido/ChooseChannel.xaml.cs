@@ -13,6 +13,7 @@ using System.Diagnostics;
 using Microsoft.Phone.BackgroundAudio;
 using System.Collections.ObjectModel;
 using Raido.Service;
+using Coding4Fun.Toolkit.Controls;
 
 namespace Raido
 {
@@ -457,7 +458,12 @@ namespace Raido
                 longlistFav.ItemsSource.Remove(fav);
                 Radiohelper helper = new Radiohelper();
                 helper.WriteObjecttoXml(favList);
-                
+
+                ToastPrompt _prompt = new ToastPrompt();
+                _prompt.Title = "Radio Pro";
+                _prompt.Message = "成功删除";
+                _prompt.TextWrapping = TextWrapping.NoWrap;
+                _prompt.Show();
             }
         }
 

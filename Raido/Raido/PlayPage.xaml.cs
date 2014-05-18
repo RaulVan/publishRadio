@@ -17,6 +17,7 @@ using Microsoft.Phone.BackgroundAudio;
 using System.Diagnostics;
 using Raido.Models;
 using System.Collections.ObjectModel;
+using Coding4Fun.Toolkit.Controls;
 
 namespace Raido
 {
@@ -37,6 +38,9 @@ namespace Raido
 
         AudioTrack audioTrack;
 
+
+        private ToastPrompt _prompt;
+
         public PlayPage()
         {
             InitializeComponent();
@@ -44,6 +48,8 @@ namespace Raido
             BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
             this.Loaded += PlayPage_Loaded;
         }
+
+   
 
         private void Instance_PlayStateChanged(object sender, EventArgs e)
         {
@@ -117,6 +123,7 @@ namespace Raido
                     {
                         btnPause.Visibility = Visibility.Visible;
                         btnPlay.Visibility = Visibility.Collapsed;
+                        btnFav.IsEnabled = true;
                         //TODO:显示当前播放内容
                         txtPlayName.Text = audioTrack.Title;
                     }
@@ -124,14 +131,18 @@ namespace Raido
                     {
                         btnPause.Visibility = Visibility.Collapsed;
                         btnPlay.Visibility = Visibility.Visible;
+                        btnFav.IsEnabled = false;
                         //TODO:播放内容清空
                         txtPlayName.Text = "";
                     }
+
+                    
                 }
                 else
                 {
                     btnPause.Visibility = Visibility.Collapsed;
                     btnPlay.Visibility = Visibility.Visible;
+                    btnFav.IsEnabled = false;
                     //TODO:播放内容清空
                     txtPlayName.Text = "";
                 }
@@ -211,6 +222,8 @@ namespace Raido
 
         private void btnFav_Click(object sender, RoutedEventArgs e)
         {
+            
+
             Radiohelper helper = new Radiohelper();
 
             ObservableCollection<RadioFavList> favList = helper.ReadXmltoObject();
@@ -218,10 +231,32 @@ namespace Raido
             {
                 favList = new ObservableCollection<RadioFavList>();
             }
+            
+            //如果当前播放已经加入收藏夹，不再添加
+            foreach (var item in favList)
+            {
+                if (item.RadioURL == audioTrack.Source.ToString())
+                {
+                    //audioTrack = item;
+                    //btnFav.IsEnabled = false;
+                    _prompt = new ToastPrompt();
+                    _prompt.Title = "Radio Pro";
+                    _prompt.Message = "该频道已在收藏列表";
+                    _prompt.TextWrapping = TextWrapping.NoWrap;
+                    _prompt.Show();
+                    return;
+                }
+            }
             if (audioTrack!=null)
             {
                 favList.Add(new RadioFavList() { RadioName = audioTrack.Title, RadioURL = audioTrack.Source.ToString(), Type = audioTrack.Artist, IsFav=true });
                 helper.WriteObjecttoXml(favList);
+               
+                _prompt = new ToastPrompt();
+                _prompt.Title = "Radio Pro";
+                _prompt.Message = "成功添加至收藏列表";
+                _prompt.TextWrapping = TextWrapping.NoWrap;
+                _prompt.Show();
             }
            
         }
