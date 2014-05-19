@@ -252,11 +252,9 @@
     <Content Include="Images\logo.png" />
     <Content Include="Images\logo4about.png" />
     <Content Include="Images\Radio_UI_53.png" />
-    <Content Include="Images\tile_159.png" />
-    <Content Include="Images\tile_300.png" />
-    <Content Include="Images\磁贴_09.png" />
-    <Content Include="Images\磁贴_14.png" />
-    <Content Include="Images\磁贴_17.png" />
+    <Content Include="Assets\Tiles\磁贴_09.png" />
+    <Content Include="Assets\Tiles\磁贴_14.png" />
+    <Content Include="Assets\Tiles\磁贴_17.png" />
     <Content Include="Images\磁贴_20.png" />
     <Content Include="Resources\RadioListData.txt" />
     <Content Include="Resources\suggest.txt" />
