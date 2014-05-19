@@ -9,14 +9,19 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
     <UserControl.Resources>
-        <Storyboard x:Key="LoadingAnimation">
-            <DoubleAnimation From="0" To="359" Duration="0:0:1" RepeatBehavior="Forever"
-                             Storyboard.TargetName="LoadingVisualAngleTransform"
-                             Storyboard.TargetProperty="Angle" />
+        <Storyboard x:Name="SunshineStory" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="sunshine">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-360"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot" Background="#00aba9">
-        <Image Source="/Images/logo.png" Stretch="None">
+        <Image Width="162" Height="162" x:Name="sunshine" Source="/Images/logo.png" Stretch="UniformToFill">
+            <Image.RenderTransform>
+                <CompositeTransform  CenterX="86" CenterY="86" />
+            </Image.RenderTransform>
             <!--<Image.RenderTransform>
                 <TransformGroup>
                     <RotateTransform x:Name="LoadingVisualAngleTransform" Angle="0" CenterX="0.5" CenterY="0.5"/>

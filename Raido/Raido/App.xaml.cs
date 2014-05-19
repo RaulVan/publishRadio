@@ -9,6 +9,7 @@ using Microsoft.Phone.Shell;
 using Raido.Resources;
 using Microsoft.Phone.BackgroundAudio;
 using System.Collections.Generic;
+using UmengSDK;
 
 namespace Raido
 {
@@ -53,12 +54,14 @@ namespace Raido
             // Language display initialization
             InitializeLanguage();
 
-//#if DEBUG
-//            UmengAnalytics.Init(AppConfig.DebugAppKey, "Debug");
-//#else
+#if DEBUG
+            UmengAnalytics.Init(AppConfig.DebugAppKey, "Debug");
+#else
 
-//            UmengAnalytics.Init(AppConfig.AppKey, "Marketplace");
-//#endif
+            UmengAnalytics.Init(AppConfig.AppKey, "Marketplace");
+#endif
+            //背景主题为黑色
+            ThemeManager.ToDarkTheme();
 
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)

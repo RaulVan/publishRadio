@@ -22,18 +22,13 @@ namespace Raido.UseControl
 
         void StartLogo_Unloaded(object sender, RoutedEventArgs e)
         {
-            this.StopProgress();
+            SunshineStory.Stop();
         }
 
         void StartLogo_Loaded(object sender, RoutedEventArgs e)
         {
-            Storyboard sb = this.Resources["LoadingAnimation"] as Storyboard;
-            sb.Begin();
+            SunshineStory.Begin();
         }
-        public void StopProgress()
-        {
-            Storyboard sb = this.Resources["LoadingAnimation"] as Storyboard;
-            sb.Stop();
-        }
+       
     }
 }

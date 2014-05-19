@@ -16,6 +16,7 @@ namespace Raido
         public PageAbout()
         {
             InitializeComponent();
+            txtVersion.Text ="v"+ Radiohelper.GetVersion();
         }
 
         private void btnRate_Click(object sender, RoutedEventArgs e)
@@ -28,7 +29,7 @@ namespace Raido
         {
             EmailComposeTask ect = new EmailComposeTask();
             ect.To = "raulgblanco@live.com";
-            ect.Subject = " Radio Pro 电台反馈";
+            ect.Subject = " 7.11 FM 反馈";
             ect.Show();
         }
     }

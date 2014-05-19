@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Xml;
 using System.Xml.Serialization;
 using Raido.Models;
+using System.Windows.Resources;
+using System.Net;
+using System.Diagnostics;
 
 namespace Raido
 {
@@ -78,7 +81,7 @@ namespace Raido
 
                 wideBitmap.Blit(new Rect(0, 0, width, heigth), new WriteableBitmap(wbmp), new Rect(0, 0, wbmp.PixelWidth, wbmp.PixelHeight), WriteableBitmapExtensions.BlendMode.Additive);
                 wideBitmap.Blit(new Rect((width - 280) / 2, heigth, 280, 280), new WriteableBitmap(image1), new Rect(0, 0, image1.PixelWidth, image1.PixelHeight), WriteableBitmapExtensions.BlendMode.Additive);
-
+                image1 = null;
                 return wideBitmap;
             }
         }
@@ -190,6 +193,62 @@ namespace Raido
                         output.Write(readBuffer, 0, bytesRead);
                     }
                 }
+            }
+        }
+
+        static string Version = null;
+        internal static string GetVersion()
+        {
+            try
+            {
+                if (Version != null)
+                {
+                    return Version;
+                }
+                //Package package = Package.Current;
+                //PackageId packageId = package.Id;
+                //PKG = packageId.Name;
+                //PKG = Assembly.GetExecutingAssembly().;
+                //  PKG = AppL;
+
+
+                var manifestUri = new Uri("WMAppManifest.xml", UriKind.Relative);
+                StreamResourceInfo manifestStream = Application.GetResourceStream(manifestUri);
+                // string wmapp= manifestStream.ToString();
+                if (manifestStream != null)
+                {
+                    using (var sr = new StreamReader(manifestStream.Stream))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string line = sr.ReadLine();
+                            if (line.IndexOf("<App xmlns") != -1)
+                            {
+                                int st;
+                                if ((st = line.IndexOf("Version=\"")) != -1)
+                                {
+                                    line = line.Substring(st + 9);
+                                    st = line.IndexOf("\"");
+                                    line = line.Substring(0, st);
+                                    Version = line;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                //Debug.WriteLine(wmapp);
+                //PKG = wmapp;]
+
+
+                Version = HttpUtility.UrlEncode(Version);
+                return Version;
+            }
+            catch (Exception e)
+            {
+                Version = "";
+                Debug.WriteLine(e.Message);
+                return "";
             }
         }
 
