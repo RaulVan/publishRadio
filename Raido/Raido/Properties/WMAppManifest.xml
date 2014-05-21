@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
-  <DefaultLanguage xmlns="" code="en-US" />
+  <DefaultLanguage xmlns="" code="zh-CN" />
   <App xmlns="" ProductID="{a155f332-6d6e-4421-9824-694d61faed74}" Title="7.11 FM ββbeta" RuntimeType="Silverlight" Version="0.8.7.0" Genre="apps.normal" Author="Eleven Van" Description="Sample description" Publisher="Eleven Van" PublisherID="{6c14bd7b-66fa-44e3-94c1-456bb0921c85}">
     <IconPath IsRelative="true" IsResource="false">Assets\Tiles\_09.png</IconPath>
     <Capabilities>
