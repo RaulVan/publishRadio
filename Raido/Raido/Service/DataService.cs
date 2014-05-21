@@ -20,7 +20,7 @@ namespace Raido.Service
           string line = sr.ReadLine();
            while (!string.IsNullOrWhiteSpace(line))
            {
-               var ary = line.Split('=');
+               var ary = line.Split('$');
                var radioInfo = new RadioContent {  RadioName = ary[0],  RadioURL = ary[1] , Type=ary[2]};
                _radios.Add(radioInfo);
                line = sr.ReadLine();
@@ -36,7 +36,7 @@ namespace Raido.Service
            string line = sr.ReadLine();
            while (!string.IsNullOrWhiteSpace(line))
            {
-               var ary = line.Split('=');
+               var ary = line.Split('$');
                var radioInfo = new RadioContent { RadioName = ary[0], RadioURL = ary[1], Type = ary[2] };
                _radios.Add(radioInfo);
                line = sr.ReadLine();

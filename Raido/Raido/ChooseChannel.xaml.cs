@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using Coding4Fun.Toolkit.Controls;
+using Microsoft.Phone.BackgroundAudio;
+using Microsoft.Phone.Controls;
+using Raido.Models;
+using Raido.Service;
+using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 using System.Windows.Threading;
-using Raido.Models;
-using System.Diagnostics;
-using Microsoft.Phone.BackgroundAudio;
-using System.Collections.ObjectModel;
-using Raido.Service;
-using Coding4Fun.Toolkit.Controls;
 
 namespace Raido
 {
@@ -23,8 +19,6 @@ namespace Raido
         ///更新UI计时器
         /// </summary>
         private DispatcherTimer timerr;
-
-
 
         /// <summary>
         /// 当前播放
@@ -46,14 +40,10 @@ namespace Raido
             this.Loaded += ChooseChannel_Loaded;
             BackgroundAudioPlayer.Instance.PlayStateChanged += Instance_PlayStateChanged;
 
-
             longlistAll.SelectionChanged += longlistAll_SelectionChanged;
             longlistFav.SelectionChanged += longlistFav_SelectionChanged;
             longlistSug.SelectionChanged += longlistSug_SelectionChanged;
-
-
         }
-
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -66,10 +56,9 @@ namespace Raido
                 //TODO:加载收藏
                 longlistFav.Visibility = Visibility.Visible;
                 Radiohelper helper = new Radiohelper();
-                favList = helper.ReadXmltoObject();
+                favList = helper.ReadXmltoObject<RadioFavList>(AppConfig.FavListFile);
                 if (favList != null)
                 {
-
                     longlistFav.ItemsSource = favList;
                 }
             }
@@ -91,14 +80,12 @@ namespace Raido
             }
             base.OnNavigatedTo(e);
         }
-        void ChooseChannel_Loaded(object sender, RoutedEventArgs e)
-        {
 
+        private void ChooseChannel_Loaded(object sender, RoutedEventArgs e)
+        {
             this.timerr = new DispatcherTimer();
             this.timerr.Interval = TimeSpan.FromSeconds(.05);
             this.timerr.Tick += UpdateState;
-
-
         }
 
         private void UpdateState(object sender, EventArgs e)
@@ -125,7 +112,6 @@ namespace Raido
                         txtPlayName.Text = "";
                         gridPlay.Visibility = Visibility.Collapsed;
                     }
-
                 }
                 else
                 {
@@ -161,7 +147,7 @@ namespace Raido
                 catch (InvalidOperationException ex)
                 {
                     playState = PlayState.Stopped;
-                    //UmengSDK.UmengAnalytics.TrackException(ex);
+                    UmengSDK.UmengAnalytics.TrackException(ex);
                 }
 
                 switch (playState)
@@ -197,12 +183,13 @@ namespace Raido
             catch (Exception ex)
             {
                 Debug.WriteLine("PlayStateChanged:" + ex.ToString());
-                //UmengSDK.UmengAnalytics.TrackException(ex);
+                UmengSDK.UmengAnalytics.TrackException(ex);
             }
         }
 
         #region Long List SelectionChanged
-        void longlistAll_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void longlistAll_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
@@ -262,7 +249,8 @@ namespace Raido
                 //UmengSDK.UmengAnalytics.TrackException(ex);
             }
         }
-        void longlistSug_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void longlistSug_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
@@ -323,7 +311,7 @@ namespace Raido
             }
         }
 
-        void longlistFav_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void longlistFav_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
@@ -331,6 +319,8 @@ namespace Raido
                 //longlistAll.ScrollTo(selectenItem);
 
                 AudioTrack selectAudioTrack = new AudioTrack(new Uri(selectenItem.RadioURL, UriKind.Absolute), selectenItem.RadioName, selectenItem.Type, "", null, "", EnabledPlayerControls.Pause);
+                // BackgroundAudioPlayer.Instance.Track
+                
                 //TODO：查找当前Select项在_PlayList中的index，然后给 isoCurrentTrack
 
                 foreach (var item in (Application.Current as App).PlayList)
@@ -384,7 +374,7 @@ namespace Raido
             }
         }
 
-        #endregion
+        #endregion Long List SelectionChanged
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
@@ -415,7 +405,7 @@ namespace Raido
             }
             catch (Exception ex)
             {
-                //UmengSDK.UmengAnalytics.TrackException(ex);
+                UmengSDK.UmengAnalytics.TrackException(ex);
             }
         }
 
@@ -437,7 +427,7 @@ namespace Raido
             catch (Exception ex)
             {
                 Debug.WriteLine("btnNext_Click" + ex.ToString());
-                //UmengSDK.UmengAnalytics.TrackException(ex);
+                UmengSDK.UmengAnalytics.TrackException(ex);
             }
         }
 
@@ -450,7 +440,7 @@ namespace Raido
             }
             catch (Exception ex)
             {
-                //UmengSDK.UmengAnalytics.TrackException(ex);
+                UmengSDK.UmengAnalytics.TrackException(ex);
             }
         }
 
@@ -458,19 +448,24 @@ namespace Raido
         {
             if (favList.Count > 0)
             {
-                RadioFavList fav = (sender as Microsoft.Phone.Controls.MenuItem).CommandParameter as RadioFavList;
-                favList.Remove(fav);
-                longlistFav.ItemsSource.Remove(fav);
-                Radiohelper helper = new Radiohelper();
-                helper.WriteObjecttoXml(favList);
-
                 ToastPrompt _prompt = new ToastPrompt();
-                _prompt.Title = "Radio Pro";
-                _prompt.Message = "成功删除";
+                try
+                {
+                    RadioFavList fav = (sender as Microsoft.Phone.Controls.MenuItem).CommandParameter as RadioFavList;
+                    favList.Remove(fav);
+                    longlistFav.ItemsSource.Remove(fav);
+                    Radiohelper helper = new Radiohelper();
+                    helper.WriteObjecttoXml<RadioFavList>(favList, AppConfig.FavListFile);
+                    _prompt.Message = AppConfig.MsgFavDelSuccess;//删除成功
+                }
+                catch (Exception ex)
+                {
+                    _prompt.Message = AppConfig.MsgFavDelFailed;//删除失败
+                }
+                _prompt.Title = AppConfig.ToastTitle;
                 _prompt.TextWrapping = TextWrapping.NoWrap;
                 _prompt.Show();
             }
         }
-
     }
 }
