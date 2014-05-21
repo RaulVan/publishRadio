@@ -36,11 +36,11 @@ namespace Raido
         public List<AudioTrack> GetRadioFavList()
         {
             List<AudioTrack> audioList = new List<AudioTrack>();
-            if (ReadXmltoObject() == null)
+            if (ReadXmltoObject<RadioFavList>(AppConfig.FavListFile) == null)
             {
                 return null;
             }
-            List<RadioFavList> radios = ReadXmltoObject().ToList();
+            List<RadioFavList> radios = ReadXmltoObject<RadioFavList>(AppConfig.FavListFile).ToList();
             foreach (var item in radios)
             {
                 audioList.Add(new AudioTrack(new Uri(item.RadioURL, UriKind.Absolute), item.RadioName, item.Type, "", null, "", EnabledPlayerControls.Pause));
@@ -126,11 +126,60 @@ namespace Raido
             }
         }
 
+        ///// <summary>
+        ///// // Write to the Isolated Storage
+        ///// </summary>
+        ///// <param name="favRadioList"></param>
+        //public void WriteObjecttoXml(ObservableCollection<RadioFavList> favRadioList)
+        //{
+
+        //    XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
+        //    xmlWriterSettings.Indent = true;
+
+        //    using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+        //    {
+        //        using (IsolatedStorageFileStream stream = myIsolatedStorage.OpenFile("fav.xml", FileMode.Create))
+        //        {
+        //            XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<RadioFavList>));
+        //            using (XmlWriter xmlWriter = XmlWriter.Create(stream, xmlWriterSettings))
+        //            {
+        //                serializer.Serialize(xmlWriter, favRadioList);
+        //            }
+        //        }
+        //    }
+
+        //}
+
+        //public ObservableCollection<RadioFavList> ReadXmltoObject(string filename)
+        //{
+        //    using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+        //    {
+        //        using (IsolatedStorageFileStream stream = myIsolatedStorage.OpenFile(filename, FileMode.OpenOrCreate))
+        //        {
+        //            if (stream.Length != 0)
+        //            {
+
+        //                XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<RadioFavList>));
+        //                ObservableCollection<RadioFavList> data = (ObservableCollection<RadioFavList>)serializer.Deserialize(stream);
+        //                return data;
+
+        //            }
+        //            else
+        //            {
+        //                return null;
+        //            }
+        //        }
+        //    }
+
+        //}
+
         /// <summary>
-        /// // Write to the Isolated Storage
+        /// Write to the Isolated Storage
         /// </summary>
-        /// <param name="favRadioList"></param>
-        public void WriteObjecttoXml(ObservableCollection<RadioFavList> favRadioList)
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="filename">文件名xml</param>
+        public void WriteObjecttoXml<T>(ObservableCollection<T> list,string filename)
         {
 
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
@@ -138,29 +187,34 @@ namespace Raido
 
             using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                using (IsolatedStorageFileStream stream = myIsolatedStorage.OpenFile("fav.xml", FileMode.Create))
+                using (IsolatedStorageFileStream stream = myIsolatedStorage.OpenFile(filename, FileMode.Create))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<RadioFavList>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<T>));
                     using (XmlWriter xmlWriter = XmlWriter.Create(stream, xmlWriterSettings))
                     {
-                        serializer.Serialize(xmlWriter, favRadioList);
+                        serializer.Serialize(xmlWriter, list);
                     }
                 }
             }
 
         }
-
-        public ObservableCollection<RadioFavList> ReadXmltoObject()
+        /// <summary>
+        /// Read from the Isolated Storage
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="filename">文件名xml</param>
+        /// <returns></returns>
+        public ObservableCollection<T> ReadXmltoObject<T>(string filename)
         {
             using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                using (IsolatedStorageFileStream stream = myIsolatedStorage.OpenFile("fav.xml", FileMode.OpenOrCreate))
+                using (IsolatedStorageFileStream stream = myIsolatedStorage.OpenFile(filename, FileMode.OpenOrCreate))
                 {
                     if (stream.Length != 0)
                     {
 
-                        XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<RadioFavList>));
-                        ObservableCollection<RadioFavList> data = (ObservableCollection<RadioFavList>)serializer.Deserialize(stream);
+                        XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<T>));
+                        ObservableCollection<T> data = (ObservableCollection<T>)serializer.Deserialize(stream);
                         return data;
 
                     }

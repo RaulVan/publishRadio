@@ -45,7 +45,7 @@
         <loc:StartLogo x:Name="loadingScreen"/>
 
         <phone:Panorama  x:Name="panoramaMain" TitleTemplate="{StaticResource DataTemplate1}" >
-            <phone:PanoramaItem CacheMode="{x:Null}" Orientation="Horizontal" Header="7.11 FM ββbeta" FontFamily="Segoe UI Light"  >
+            <phone:PanoramaItem CacheMode="{x:Null}" Orientation="Horizontal" Header="7.11 FM " FontFamily="Segoe UI Light"  >
                 <phone:PanoramaItem.RenderTransform>
                     <TranslateTransform/>
                 </phone:PanoramaItem.RenderTransform>

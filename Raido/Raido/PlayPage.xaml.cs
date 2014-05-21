@@ -226,7 +226,8 @@ namespace Raido
 
             Radiohelper helper = new Radiohelper();
 
-            ObservableCollection<RadioFavList> favList = helper.ReadXmltoObject();
+           // ObservableCollection<RadioFavList> favList = helper.ReadXmltoObject("fav.xml");
+            ObservableCollection<RadioFavList> favList = helper.ReadXmltoObject<RadioFavList>(AppConfig.FavListFile);
             if (favList==null)
             {
                 favList = new ObservableCollection<RadioFavList>();
@@ -240,8 +241,8 @@ namespace Raido
                     //audioTrack = item;
                     //btnFav.IsEnabled = false;
                     _prompt = new ToastPrompt();
-                    _prompt.Title = "提示";
-                    _prompt.Message = "该频道已在收藏列表";
+                    _prompt.Title = AppConfig.ToastTitle;
+                    _prompt.Message = AppConfig.MsgFavHas;
                     _prompt.TextWrapping = TextWrapping.NoWrap;
                     _prompt.Show();
                     return;
@@ -250,11 +251,11 @@ namespace Raido
             if (audioTrack!=null)
             {
                 favList.Add(new RadioFavList() { RadioName = audioTrack.Title, RadioURL = audioTrack.Source.ToString(), Type = audioTrack.Artist, IsFav=true });
-                helper.WriteObjecttoXml(favList);
+                helper.WriteObjecttoXml<RadioFavList>(favList, AppConfig.FavListFile);
                
                 _prompt = new ToastPrompt();
-                _prompt.Title = "提示";
-                _prompt.Message = "成功添加至收藏列表";
+                _prompt.Title = AppConfig.ToastTitle;
+                _prompt.Message =AppConfig.MsgFavAddSuccess;
                 _prompt.TextWrapping = TextWrapping.NoWrap;
                 _prompt.Show();
             }

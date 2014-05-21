@@ -19,6 +19,13 @@ namespace Raido
         public static string DatasURL = "http://shage.me/app/radiolist.txt";
         public static string SuggestURL = "http://shage.me/app/suggest.txt";
         public static string filename = "radiolist.txt";
+        public static string FavListFile = "fav.xml";
+        public static string UserAddListFile = "user.xml";
+        public static string ToastTitle = "7.11 FM";
+        public static string MsgFavDelSuccess = "删除成功";
+        public static string MsgFavDelFailed = "删除失败";
+        public static string MsgFavHas = "该频道已在收藏列表";
+        public static string MsgFavAddSuccess = "成功添加至收藏列表";
 
         /// <summary>
         /// 友盟统计API Key
