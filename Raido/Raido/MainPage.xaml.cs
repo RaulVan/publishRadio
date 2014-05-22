@@ -199,7 +199,7 @@ namespace Raido
 
         private void ImageButton_Click_2(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new Uri("/PageSetting.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/PageSetting.xaml", UriKind.Relative));
         }
 
         private void ImageButton_Click_3(object sender, RoutedEventArgs e)

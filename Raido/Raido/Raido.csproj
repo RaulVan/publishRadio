@@ -101,6 +101,7 @@
     <Compile Include="Heplers\KeyedList.cs" />
     <Compile Include="Heplers\RadioEnum.cs" />
     <Compile Include="Heplers\Radiohelper.cs" />
+    <Compile Include="InputControlEventArgs.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -130,10 +131,16 @@
     <Compile Include="Service\DataService.cs" />
     <Compile Include="ThemeManager\ThemeManager.cs" />
     <Compile Include="UseControl\ImageButton.cs" />
+    <Compile Include="UseControl\InputUserRadioInfo.xaml.cs">
+      <DependentUpon>InputUserRadioInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UseControl\LongListItemContainer.xaml.cs">
       <DependentUpon>LongListItemContainer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UseControl\LongListSelectorEX.cs" />
+    <Compile Include="UseControl\PopupCotainer.xaml.cs">
+      <DependentUpon>PopupCotainer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UseControl\SpectrumLike.xaml.cs">
       <DependentUpon>SpectrumLike.xaml</DependentUpon>
     </Compile>
@@ -174,7 +181,15 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UseControl\InputUserRadioInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UseControl\LongListItemContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UseControl\PopupCotainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,6 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\add.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

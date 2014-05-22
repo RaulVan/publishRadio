@@ -1,13 +1,16 @@
 ﻿using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.BackgroundAudio;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using Raido.Models;
 using Raido.Service;
+using Raido.UseControl;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 
@@ -27,6 +30,9 @@ namespace Raido
 
         private NaviTypeEnum naviType;
 
+       //private  PopupCotainer pc ;
+       // private  InputUserRadioInfo inputControl = new InputUserRadioInfo();
+
         protected ObservableCollection<RadioFavList> favList = new ObservableCollection<RadioFavList>();
 
         public ChooseChannel()
@@ -43,6 +49,12 @@ namespace Raido
             longlistAll.SelectionChanged += longlistAll_SelectionChanged;
             longlistFav.SelectionChanged += longlistFav_SelectionChanged;
             longlistSug.SelectionChanged += longlistSug_SelectionChanged;
+           // this.LostFocus += ChooseChannel_LostFocus;
+        }
+
+        void ChooseChannel_LostFocus(object sender, RoutedEventArgs e)
+        {
+            ApplicationBar.IsVisible = false;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -69,6 +81,18 @@ namespace Raido
                 longlistAll.Visibility = Visibility.Visible;
                 var viewModel = new RadioListViewModel();
                 longlistAll.ItemsSource = viewModel.GroupedRadios;
+
+                //ApplicationBar.BackgroundColor=Color
+
+                //AppBarPrompt _appBar = new AppBarPrompt();
+                
+                //_appBar.Show();
+
+                //BulidApplicationBar();
+                
+               //pc = new PopupCotainer(this);
+                
+
             }
             else if (type == "sug")
             {
@@ -466,6 +490,34 @@ namespace Raido
                 _prompt.TextWrapping = TextWrapping.NoWrap;
                 _prompt.Show();
             }
+        }
+
+
+       
+
+        private void BulidApplicationBar()
+        {
+            ApplicationBar = new ApplicationBar();
+            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Aessets/AppBar/add.png", UriKind.Relative));
+            appBarButton.Text = "添加";
+            ApplicationBar.Buttons.Add(appBarButton);
+
+            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+            ApplicationBar.Opacity = 0.2;
+
+            appBarButton.Click += btnAddRadio_Click;
+        }
+
+        private void btnAddRadio_Click(object sender, EventArgs e)
+        {
+           
+            
+        }
+
+        
+        void inputPormpt_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+        {
+            
         }
     }
 }

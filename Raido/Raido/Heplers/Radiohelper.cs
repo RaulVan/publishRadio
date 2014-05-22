@@ -17,6 +17,7 @@ using Raido.Models;
 using System.Windows.Resources;
 using System.Net;
 using System.Diagnostics;
+using Microsoft.Phone.Shell;
 
 namespace Raido
 {
@@ -179,7 +180,7 @@ namespace Raido
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <param name="filename">文件名xml</param>
-        public void WriteObjecttoXml<T>(ObservableCollection<T> list,string filename)
+        public void WriteObjecttoXml<T>(ObservableCollection<T> list, string filename)
         {
 
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
@@ -304,6 +305,42 @@ namespace Raido
                 Debug.WriteLine(e.Message);
                 return "";
             }
+        }
+
+        /// <summary>
+        /// 设置Tile透明
+        /// </summary>
+        public  void isShellTileTransparent(bool flag)
+        {
+            ShellTile applictionTile = ShellTile.ActiveTiles.FirstOrDefault();
+            FlipTileData flipTitleData = new FlipTileData();
+            if (flag)
+            {
+                flipTitleData = new FlipTileData()
+                {
+                    Title = "7.11 FM",
+                    Count = 0,
+                    SmallBackgroundImage = new Uri("/Assets/Tiles/FlipCycleTileSmall.png", UriKind.Relative),
+                    BackgroundImage = new Uri("/Assets/Tiles/FlipCycleTileMedium.png", UriKind.Relative),
+                    WideBackgroundImage = new Uri("/Assets/Tiles/FlipCycleTileLarge.png", UriKind.Relative),
+
+                };
+
+
+            }
+            else
+            {
+                flipTitleData = new FlipTileData()
+                {
+                    Title = "7.11 FM",
+                    Count = 0,
+                    SmallBackgroundImage = new Uri("/Assets/Tiles/tile_09.png", UriKind.Relative),
+                    BackgroundImage = new Uri("/Assets/Tiles/tile_300.png", UriKind.Relative),
+                    WideBackgroundImage = new Uri("/Assets/Tiles/tile_159.png", UriKind.Relative),
+
+                };
+            }
+                applictionTile.Update(flipTitleData);
         }
 
     }
