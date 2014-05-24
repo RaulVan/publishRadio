@@ -318,11 +318,11 @@ namespace Raido
             {
                 flipTitleData = new FlipTileData()
                 {
-                    Title = "7.11 FM",
+                    Title = GetAppName(),
                     Count = 0,
-                    SmallBackgroundImage = new Uri("/Assets/Tiles/FlipCycleTileSmall.png", UriKind.Relative),
-                    BackgroundImage = new Uri("/Assets/Tiles/FlipCycleTileMedium.png", UriKind.Relative),
-                    WideBackgroundImage = new Uri("/Assets/Tiles/FlipCycleTileLarge.png", UriKind.Relative),
+                    SmallBackgroundImage = new Uri("/Assets/tile/tile_159_20.png", UriKind.Relative),
+                    BackgroundImage = new Uri("/Assets/tile/tile_300.png", UriKind.Relative),
+                    WideBackgroundImage = new Uri("/Assets/tile/tile_159.png", UriKind.Relative),
 
                 };
 
@@ -332,7 +332,7 @@ namespace Raido
             {
                 flipTitleData = new FlipTileData()
                 {
-                    Title = "7.11 FM",
+                    Title = GetAppName(),
                     Count = 0,
                     SmallBackgroundImage = new Uri("/Assets/Tiles/tile_09.png", UriKind.Relative),
                     BackgroundImage = new Uri("/Assets/Tiles/tile_300.png", UriKind.Relative),
@@ -343,5 +343,46 @@ namespace Raido
                 applictionTile.Update(flipTitleData);
         }
 
+    /// <summary>
+    /// APP 名称
+    /// </summary>
+    /// <returns></returns>
+        public static  string GetAppName()
+        {
+            try
+            {
+                string name="";
+                StreamResourceInfo manifestStream = Application.GetResourceStream(new Uri("WMAppManifest.xml", UriKind.Relative));
+                if (manifestStream!=null)
+                {
+                    using (var sr=new  StreamReader(manifestStream.Stream))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string line = sr.ReadLineAsync().Result;//.ReadLine();
+                            if (line.IndexOf("<App xmlns")!=-1)
+                            {
+                                int st;
+                                if ((st=line.IndexOf("Title=\""))!=-1)
+                                {
+                                    line = line.Substring(st + 7);
+                                    st = line.IndexOf("\"");
+                                    line = line.Substring(0, st);
+                                    name = line;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //name = HttpUtility.UrlEncode(name);
+                return name;
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+        }
     }
 }

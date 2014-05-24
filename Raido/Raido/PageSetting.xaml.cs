@@ -19,6 +19,9 @@ namespace Raido
         public PageSetting()
         {
             InitializeComponent();
+            txtAppName.Text = "7.11 FM ";// Radiohelper.GetAppName();
+            txtSettingPage.Text = "设置";
+            toggsTile.IsChecked = AppConfig.isCheck;
         }
 
         /// <summary>
@@ -28,8 +31,7 @@ namespace Raido
         /// <param name="e"></param>
         private void ImageButton_Click(object sender, RoutedEventArgs e)
         {
-            Radiohelper helper = new Radiohelper();
-            helper.isShellTileTransparent(true);
+           
 
             
         }
@@ -74,6 +76,24 @@ namespace Raido
             {
                 UmengSDK.UmengAnalytics.TrackException(ex);
             }
+
+        }
+
+       
+        private void toggsTile_Checked(object sender, RoutedEventArgs e)
+        {
+                Radiohelper helper = new Radiohelper();
+                helper.isShellTileTransparent(true);
+                AppConfig.isCheck = true;
+               
+            
+        }
+
+        private void toggsTile_Unchecked(object sender, RoutedEventArgs e)
+        {
+                Radiohelper helper = new Radiohelper();
+                helper.isShellTileTransparent(false);
+                AppConfig.isCheck = false;
 
         }
     }

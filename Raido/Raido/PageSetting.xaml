@@ -6,6 +6,8 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+                            
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -22,14 +24,25 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="txtAppName" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="txtSettingPage" Text="" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-<Radio:ImageButton  Width="120" Height="120" Click="ImageButton_Click"/>
-            <Radio:ImageButton x:Name="btnAddRadio" TextContent="add"  Width="120" Height="120" Click="btnAddRadio_Click" Margin="87,105,249,414" Style="{StaticResource ButtonStyle2}"/>
+           
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="磁贴是否透明"/>
+                <toolkit:ToggleSwitch x:Name="toggsTile" Background="{x:Null}"  Checked="toggsTile_Checked" Unchecked="toggsTile_Unchecked"/>
+                </Grid>
+                <!--<Radio:ImageButton  Width="120" Height="120" Click="ImageButton_Click"/>-->
+                <!--<Radio:ImageButton x:Name="btnAddRadio" TextContent="add"  Width="120" Height="120" Click="btnAddRadio_Click"  Style="{StaticResource ButtonStyle2}"/>-->
+            </StackPanel>
         </Grid>
     </Grid>
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="zh-CN" />
-  <App xmlns="" ProductID="{a155f332-6d6e-4421-9824-694d61faed74}" Title="7.11 FM βββbeta" RuntimeType="Silverlight" Version="0.7.0.1" Genre="apps.normal" Author="Eleven Van" Description="7.11 FM" Publisher="Eleven Van" PublisherID="{6c14bd7b-66fa-44e3-94c1-456bb0921c85}">
+  <App xmlns="" ProductID="{a155f332-6d6e-4421-9824-694d61faed74}" Title="7.11 FM ββbeta" RuntimeType="Silverlight" Version="0.8.7.1" Genre="apps.normal" Author="Eleven Van" Description="7.11 FM" Publisher="Eleven Van" PublisherID="{6c14bd7b-66fa-44e3-94c1-456bb0921c85}">
     <IconPath IsRelative="true" IsResource="false">Assets\Tiles\_09.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -20,7 +20,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\title_09.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\tile_300.png</BackgroundImageURI>
-          <Title>7.11 FM βββbeta</Title>
+          <Title>7.11 FM ββbeta</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI IsRelative="true" IsResource="false">

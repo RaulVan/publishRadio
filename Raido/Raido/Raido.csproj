@@ -245,6 +245,12 @@
     <Content Include="Assets\Tiles\_14.png" />
     <Content Include="Assets\Tiles\_17.png" />
     <Content Include="Assets\Tiles\_20.png" />
+    <Content Include="Assets\tile\tile_159.png" />
+    <Content Include="Assets\tile\tile_159_09.png" />
+    <Content Include="Assets\tile\tile_159_17.png" />
+    <Content Include="Assets\tile\tile_159_20.png" />
+    <Content Include="Assets\tile\tile_300.png" />
+    <Content Include="Assets\tile\w_14.png" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
     <Content Include="Images\3.jpg" />

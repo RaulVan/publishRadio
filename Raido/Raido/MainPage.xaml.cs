@@ -197,7 +197,7 @@ namespace Raido
             NavigationService.Navigate(new Uri("/ChooseChannel.xaml?type=all", UriKind.Relative));
         }
 
-        private void ImageButton_Click_2(object sender, RoutedEventArgs e)
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/PageSetting.xaml", UriKind.Relative));
         }

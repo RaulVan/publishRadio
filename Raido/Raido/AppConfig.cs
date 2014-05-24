@@ -136,5 +136,19 @@ namespace Raido
             return height;
         }
 
+
+        public static bool isCheck
+        {
+            get
+            {
+                return IsolatedStorageSettings.ApplicationSettings.Contains("isCheck") ? (bool)IsolatedStorageSettings.ApplicationSettings["isCheck"] : false;
+            }
+            set
+            {
+                IsolatedStorageSettings.ApplicationSettings["isCheck"] = value;
+                IsolatedStorageSettings.ApplicationSettings.Save();
+            }
+        }
+
     }
 }
