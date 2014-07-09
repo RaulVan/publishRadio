@@ -142,6 +142,11 @@ namespace Raido.UseControl
             //    return;
             _Popup.Child = this;
             _Popup.IsOpen = true;
+            if (null!=_BasePage.ApplicationBar)
+            {
+            _BasePage.ApplicationBar.IsVisible = false;
+                
+            }
         }
 
         public void Close()
@@ -149,6 +154,11 @@ namespace Raido.UseControl
             _BasePage.BackKeyPress -= BasePage_BackKeyPress;
             var story = PrepareCloseStory();
             story.Begin();
+            if (null != _BasePage.ApplicationBar)
+            {
+                _BasePage.ApplicationBar.IsVisible = true;
+
+            }
         }
 
         #endregion
