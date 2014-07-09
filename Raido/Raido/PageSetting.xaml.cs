@@ -38,47 +38,10 @@ namespace Raido
 
         private void btnAddRadio_Click(object sender, RoutedEventArgs e)
         {
-            PopupCotainer pc = new PopupCotainer(this);
-            InputUserRadioInfo inpuitControl = new InputUserRadioInfo();
-            pc.Show(inpuitControl);
-            inpuitControl.OnButtonOKClickChanged += inpuitControl_OnButtonOKClickChanged;
+           
         }
 
-        /// <summary>
-        ///添加自己的Radio数据
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void inpuitControl_OnButtonOKClickChanged(object sender, InputControlEventArgs e)
-        {
-            //var info = (sender as InputUserRadioInfo);
-
-            try
-            {
-                Debug.WriteLine(e.radio.RadioName + e.radio.RadioURL + e.radio.Type);
-
-                Radiohelper helper = new Radiohelper();
-                ObservableCollection<RadioContent> radioList = helper.ReadXmltoObject<RadioContent>(AppConfig.UserAddListFile);
-                //if (radioList!=null)
-                //{
-                ////TODO:显示自添加的list
-                //}
-                if (radioList == null)
-                {
-                    radioList = new ObservableCollection<RadioContent>();
-                }
-                radioList.Add(e.radio);
-
-                helper.WriteObjecttoXml<RadioContent>(radioList, AppConfig.UserAddListFile);
-
-            }
-            catch (Exception ex)
-            {
-                UmengSDK.UmengAnalytics.TrackException(ex);
-            }
-
-        }
-
+       
        
         private void toggsTile_Checked(object sender, RoutedEventArgs e)
         {

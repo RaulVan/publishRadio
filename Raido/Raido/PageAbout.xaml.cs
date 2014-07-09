@@ -32,5 +32,13 @@ namespace Raido
             ect.Subject = " 7.11 FM 反馈";
             ect.Show();
         }
+
+        private void btnGitHub_Click(object sender, RoutedEventArgs e)
+        {
+            WebBrowserTask task = new WebBrowserTask();
+            task.Uri = new Uri("http://github.com/RaulVan/publishRadio", UriKind.Absolute);
+            task.Show();
+
+        }
     }
 }
