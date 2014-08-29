@@ -73,6 +73,7 @@ namespace Raido
                 {
                     longlistFav.ItemsSource = favList;
                 }
+                ApplicationBar.IsVisible = false;
             }
             else if (type == "all")
             {
@@ -91,7 +92,7 @@ namespace Raido
                 //BulidApplicationBar();
                 
                //pc = new PopupCotainer(this);
-                
+              
 
             }
             else if (type == "sug")
@@ -101,6 +102,7 @@ namespace Raido
                 //TODO:加载推荐
                 longlistSug.Visibility = Visibility.Visible;
                 longlistSug.ItemsSource = DataService.GetSuggestRadios();
+                ApplicationBar.IsVisible = false;
             }
             base.OnNavigatedTo(e);
         }
@@ -519,5 +521,49 @@ namespace Raido
         {
             
         }
+
+        private void btnAddChannel_Click(object sender, EventArgs e)
+        {
+            PopupCotainer pc = new PopupCotainer(this);
+            InputUserRadioInfo inpuitControl = new InputUserRadioInfo();
+            pc.Show(inpuitControl);
+            inpuitControl.OnButtonOKClickChanged += inpuitControl_OnButtonOKClickChanged;
+        }
+
+        /// <summary>
+        ///添加自己的Radio数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void inpuitControl_OnButtonOKClickChanged(object sender, InputControlEventArgs e)
+        {
+            //var info = (sender as InputUserRadioInfo);
+
+            try
+            {
+                Debug.WriteLine(e.radio.RadioName + e.radio.RadioURL + e.radio.Type);
+
+                Radiohelper helper = new Radiohelper();
+                ObservableCollection<RadioContent> radioList = helper.ReadXmltoObject<RadioContent>(AppConfig.UserAddListFile);
+                //if (radioList!=null)
+                //{
+                ////TODO:显示自添加的list
+                //}
+                if (radioList == null)
+                {
+                    radioList = new ObservableCollection<RadioContent>();
+                }
+                radioList.Add(e.radio);
+
+                helper.WriteObjecttoXml<RadioContent>(radioList, AppConfig.UserAddListFile);
+
+            }
+            catch (Exception ex)
+            {
+                UmengSDK.UmengAnalytics.TrackException(ex);
+            }
+
+        }
+
     }
 }

@@ -41,7 +41,7 @@
                 <toolkit:ToggleSwitch x:Name="toggsTile" Background="{x:Null}"  Checked="toggsTile_Checked" Unchecked="toggsTile_Unchecked"/>
                 </Grid>
                 <!--<Radio:ImageButton  Width="120" Height="120" Click="ImageButton_Click"/>-->
-                <!--<Radio:ImageButton x:Name="btnAddRadio" TextContent="add"  Width="120" Height="120" Click="btnAddRadio_Click"  Style="{StaticResource ButtonStyle2}"/>-->
+                <Radio:ImageButton x:Name="btnAddRadio" TextContent="add"  Width="120" Height="120" Click="btnAddRadio_Click"  Style="{StaticResource ButtonStyle2}"/>
             </StackPanel>
         </Grid>
     </Grid>
